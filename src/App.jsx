@@ -16,10 +16,11 @@ import Footer        from "./components/Footer";
 import Home          from "./pages/Home";
 import Portfolio     from "./pages/Portfolio";
 import OtherProjects from "./pages/OtherProjects";
+import PBS           from "./pages/PBSProject";
 
 export default function App() {
   const [page, setPage] = useState("home");
-  const pageKey         = useRef(0); // increments on nav to trigger fade animation
+  const pageKey         = useRef(0);
 
   const navigate = (newPage) => {
     pageKey.current += 1;
@@ -30,22 +31,20 @@ export default function App() {
   // ── Add new pages here ──────────────────────────────────────
   const renderPage = () => {
     switch (page) {
-      case "home":      return <Home onNavigate={navigate} />;
-      case "portfolio": return <Portfolio />;
+      case "home":      return <Home      onNavigate={navigate} />;
+      case "portfolio": return <Portfolio onNavigate={navigate} />;
       case "other":     return <OtherProjects />;
-      default:          return <Home onNavigate={navigate} />;
+      case "pbs":       return <PBS       onNavigate={navigate} />;
+      default:          return <Home      onNavigate={navigate} />;
     }
   };
 
   return (
     <>
       <Nav activePage={page} onNavigate={navigate} />
-
-      {/* key prop forces re-mount on page change → triggers fade-up animation */}
       <main key={pageKey.current} className="fade-up">
         {renderPage()}
       </main>
-
       <Footer />
     </>
   );

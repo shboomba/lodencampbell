@@ -9,19 +9,19 @@
 
 const software = [
   {
-    title:       "PBS Project",
-    logo:        "https://lodencampbell.com/wp-content/uploads/2025/11/PBS_Logo.webp",
-    url:         "https://lodencampbell.com/elementor-1636/",
-    description: "Software development project",
-    tags:        [],
+    title:       "PBS Wisconsin Recommendation Engine",
+    logo:        "/pbs.png",
+    page:        "pbs",            // ← internal page route
+    description: "Full-stack content personalization system — NLP, ML model, Flask backend, React frontend",
+    tags:        ["Python", "Flask", "React", "ML", "NLP"],
   },
 
-  // ── ADD NEW SOFTWARE PROJECTS BELOW ──────────────────────
+  // External link example:
   // {
   //   title:       "My App",
-  //   logo:        "https://link-to-logo.png",  // optional — remove line if no logo
+  //   logo:        "/myapp-logo.png",
   //   url:         "https://github.com/shboomba/my-app",
-  //   description: "What the project does in one or two sentences.",
+  //   description: "What the project does.",
   //   tags:        ["Python", "React"],
   // },
 ];

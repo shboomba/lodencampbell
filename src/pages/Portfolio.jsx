@@ -8,12 +8,16 @@
 //    src/data/software.js ← software project cards
 // ============================================================
 
+// ============================================================
+//  src/pages/Portfolio.jsx
+// ============================================================
+
 import games        from "../data/games";
 import software     from "../data/software";
 import GameCard     from "../components/GameCard";
 import SoftwareCard from "../components/SoftwareCard";
 
-export default function Portfolio() {
+export default function Portfolio({ onNavigate }) {
   return (
     <div style={{ paddingTop: "var(--nav-height)" }}>
       <div className="section-wrap">
@@ -23,9 +27,9 @@ export default function Portfolio() {
         <h2 className="section-title fade-up delay-1">Personal Games</h2>
 
         <div style={{
-          display:             "grid",
+          display: "grid",
           gridTemplateColumns: "repeat(auto-fill, minmax(200px, 1fr))",
-          gap:                 20,
+          gap: 20,
         }}>
           {games.map((game, i) => (
             <div key={game.title} className="fade-up" style={{ animationDelay: `${0.1 * i}s` }}>
@@ -39,10 +43,10 @@ export default function Portfolio() {
           <div className="section-label fade-up">Software</div>
           <h2 className="section-title fade-up delay-1">Software Projects</h2>
 
-          <div style={{ display: "flex", flexWrap: "wrap", gap: 20 }}>
+          <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
             {software.map((project, i) => (
               <div key={project.title} className="fade-up" style={{ animationDelay: `${0.1 * i}s` }}>
-                <SoftwareCard {...project} />
+                <SoftwareCard {...project} onNavigate={onNavigate} />
               </div>
             ))}
           </div>

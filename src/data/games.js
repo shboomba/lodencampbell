@@ -15,7 +15,7 @@ const games = [
     url:         "https://loden-campbell.itch.io/against-the-grain",
     platform:    "itch.io",
     tags:        ["Unity", "C#"],
-    description: "", // optional — leave empty string to hide
+    description: "Testing", // optional — leave empty string to hide
   },
   {
     title:       "On Par",
