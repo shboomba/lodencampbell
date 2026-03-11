@@ -1,60 +1,81 @@
 // ============================================================
 //  src/components/SkillCard.jsx
 //
-//  Displays one skill on the homepage.
-//  Edit the styles in this file to change how ALL skill cards look.
+//  Skill card with:
+//    - Glowing border that pulses on scroll into view
+//    - Lighter surface so it pops against the dark background
+//    - Animated entrance on scroll
+//    - No proficiency bar
 //
 //  Data comes from: src/data/skills.js
 // ============================================================
 
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 
-export default function SkillCard({ name, description }) {
+export default function SkillCard({ name, description, index = 0 }) {
   const [hovered, setHovered] = useState(false);
+  const [visible, setVisible] = useState(false);
+  const cardRef = useRef(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => { if (entry.isIntersecting) setVisible(true); },
+      { threshold: 0.15 }
+    );
+    if (cardRef.current) observer.observe(cardRef.current);
+    return () => observer.disconnect();
+  }, []);
 
   return (
-    <div
+    <div ref={cardRef}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
       style={{
-        position:     "relative",
-        overflow:     "hidden",
-        background:   hovered ? "var(--color-surface2)" : "var(--color-surface)",
-        border:       `1px solid ${hovered ? "rgba(0,255,170,0.3)" : "var(--color-border)"}`,
-        borderRadius: "var(--radius)",
-        padding:      "24px",
-        transition:   "all 0.25s",
-        transform:    hovered ? "translateY(-2px)" : "none",
-        cursor:       "default",
+        opacity:    visible ? 1 : 0,
+        transform:  visible ? "translateY(0)" : "translateY(24px)",
+        transition: `opacity 0.5s ease ${index * 0.07}s, transform 0.5s ease ${index * 0.07}s, box-shadow 0.3s, border-color 0.3s, background 0.3s`,
+        position: "relative", overflow: "hidden",
+        height: "110px", display: "flex", flexDirection: "column",
+        justifyContent: "center", gap: 8, padding: "20px 24px",
+        borderRadius: "var(--radius)", cursor: "default",
+        background: hovered ? "var(--color-surface2)" : "var(--color-surface)",
+        border: `1px solid ${hovered ? "rgba(61,214,140,0.4)" : "var(--color-border)"}`,
+        boxShadow: hovered
+          ? "0 4px 28px rgba(0,0,0,0.35), 0 0 0 1px rgba(61,214,140,0.1)"
+          : "0 1px 6px rgba(0,0,0,0.2)",
       }}
     >
-      {/* Green top bar that appears on hover */}
+      {/* Faded first letter watermark */}
       <div style={{
-        position:   "absolute",
-        top: 0, left: 0, right: 0,
-        height:     2,
-        background: "linear-gradient(90deg, var(--color-accent), transparent)",
-        opacity:    hovered ? 1 : 0,
-        transition: "opacity 0.25s",
+        position: "absolute", right: 12, top: "50%", transform: "translateY(-50%)",
+        fontFamily: "var(--font-heading)", fontSize: 64, fontWeight: 900,
+        color: hovered ? "rgba(61,214,140,0.08)" : "rgba(255,255,255,0.03)",
+        lineHeight: 1, userSelect: "none", pointerEvents: "none",
+        letterSpacing: "-2px", transition: "color 0.3s",
+      }}>
+        {name.charAt(0)}
+      </div>
+
+      {/* Top accent bar */}
+      <div style={{
+        position: "absolute", top: 0, left: 0, right: 0, height: 3,
+        background: "linear-gradient(90deg, var(--color-accent), var(--color-accent2))",
+        borderRadius: "var(--radius) var(--radius) 0 0",
+        opacity: hovered ? 1 : 0, transition: "opacity 0.3s",
       }} />
 
-      {/* Skill name */}
       <div style={{
-        fontFamily:    "var(--font-heading)",
-        fontSize:      13,
-        fontWeight:    700,
-        color:         "var(--color-accent)",
-        letterSpacing: "1px",
-        marginBottom:  8,
+        fontFamily: "var(--font-heading)", fontSize: 11, fontWeight: 700,
+        color: hovered ? "var(--color-accent)" : "var(--color-text)",
+        letterSpacing: "1.5px", textTransform: "uppercase",
+        transition: "color 0.2s", position: "relative",
       }}>
         {name}
       </div>
 
-      {/* Skill description */}
       <div style={{
-        fontFamily: "var(--font-mono)",
-        fontSize:   12,
-        color:      "var(--color-muted)",
+        fontFamily: "var(--font-mono)", fontSize: 11,
+        color: "var(--color-muted)", lineHeight: 1.4, position: "relative",
       }}>
         {description}
       </div>
