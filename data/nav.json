@@ -1,0 +1,5 @@
+[
+  { "label": "Home",           "page": "home" },
+  { "label": "Portfolio",      "page": "portfolio" },
+  { "label": "Other Projects", "page": "other" }
+]
