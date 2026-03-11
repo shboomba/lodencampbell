@@ -1,17 +1,18 @@
 # Loden Campbell — Portfolio Site
 
-## ⚡ Quick Start (Running Locally)
+A React + Vite frontend-only portfolio. No backend server needed.
+Content is edited directly in the `src/data/` files.
+
+---
+
+## ⚡ Quick Start
 
 ```bash
-# 1. Install all dependencies
-npm run install:all
-
-# 2. Start both servers at once
+npm install
 npm run dev
 ```
 
-- **Frontend** (what you see): http://localhost:5173  
-- **Backend API** (data source): http://localhost:3000
+Open http://localhost:5173 in your browser.
 
 ---
 
@@ -20,203 +21,224 @@ npm run dev
 ```
 lodencampbell/
 │
-├── README.md                    ← You are here
-├── package.json                 ← Root: runs both servers with one command
+├── README.md                     ← You are here
+├── package.json                  ← Project dependencies & scripts
+├── vite.config.js                ← Dev server config (don't need to touch this)
+├── index.html                    ← HTML shell (don't need to touch this)
 │
-├── server/                      ← Express backend (Node.js)
-│   ├── server.js                ← API entry point & route definitions
-│   └── data/                    ← ✏️  EDIT THESE FILES to update site content
-│       ├── bio.json             ← Name, photo URL, about paragraphs, contact links
-│       ├── nav.json             ← Navigation menu links
-│       ├── skills.json          ← Skills section cards
-│       ├── games.json           ← Portfolio: game project cards
-│       └── software.json        ← Portfolio: software project cards
-│
-└── client/                      ← React frontend (Vite)
-    ├── index.html               ← HTML shell (rarely needs editing)
-    ├── vite.config.js           ← Dev server config (proxies /api to Express)
-    ├── package.json
-    └── src/
-        ├── main.jsx             ← React entry point (rarely needs editing)
-        ├── App.jsx              ← Page router — add new pages here
-        │
-        ├── styles/
-        │   └── global.css       ← 🎨 ALL colors, fonts, spacing live here
-        │
-        ├── hooks/
-        │   └── useApi.js        ← Reusable data-fetching hook (don't edit)
-        │
-        ├── components/          ← Reusable UI building blocks
-        │   ├── Nav.jsx          ← Top navigation bar
-        │   ├── Footer.jsx       ← Site footer
-        │   ├── SkillCard.jsx    ← One card per skill
-        │   ├── GameCard.jsx     ← One card per game project
-        │   └── SoftwareCard.jsx ← One card per software project
-        │
-        └── pages/               ← One file per page/route
-            ├── Home.jsx         ← Landing page (hero, bio, skills)
-            ├── Portfolio.jsx    ← Games + software projects
-            └── OtherProjects.jsx← Placeholder / future projects
+└── src/
+    │
+    ├── data/                     ← ✏️  EDIT THESE to update site content
+    │   ├── bio.js                ← Your name, photo, about text, contacts, school logos
+    │   ├── nav.js                ← Navigation menu links
+    │   ├── skills.js             ← Skill cards on the homepage
+    │   ├── games.js              ← Game cards on the Portfolio page
+    │   └── software.js           ← Software project cards on the Portfolio page
+    │
+    ├── components/               ← Reusable UI pieces (edit to change card appearance)
+    │   ├── Nav.jsx               ← Top navigation bar
+    │   ├── Footer.jsx            ← Site footer
+    │   ├── SkillCard.jsx         ← One skill card — edit to restyle ALL skill cards
+    │   ├── GameCard.jsx          ← One game card — edit to restyle ALL game cards
+    │   └── SoftwareCard.jsx      ← One software card — edit to restyle ALL software cards
+    │
+    ├── pages/                    ← One file per page
+    │   ├── Home.jsx              ← Landing page (hero, about, skills)
+    │   ├── Portfolio.jsx         ← Games + software projects
+    │   └── OtherProjects.jsx     ← Placeholder for future projects
+    │
+    ├── styles/
+    │   └── global.css            ← 🎨 ALL colors, fonts, spacing — change here first
+    │
+    ├── App.jsx                   ← Page router (add new pages here)
+    └── main.jsx                  ← React entry point (don't need to touch this)
 ```
 
 ---
 
-## ✏️ How to Edit Content (No Code Required)
+## ✏️ Editing Content (Most Common Tasks)
 
-All site content lives in **`server/data/`** as simple JSON files.  
-Just edit the file, save it, and the site updates automatically.
+### Change your name, photo, school, or about text
+**File:** `src/data/bio.js`
 
-### Change your bio, photo, or contact info
-**File:** `server/data/bio.json`
-```json
-{
-  "name":   "Loden Campbell",
-  "role":   "Software Engineer & Game Developer",
-  "school": "MS Computer Science · USC",
-  "photo":  "https://link-to-your-photo.jpg",
-  "contacts": [
-    { "label": "your@email.com", "href": "mailto:your@email.com" },
-    { "label": "LinkedIn",       "href": "https://linkedin.com/in/you" }
-  ]
-}
-```
+Everything about you lives here. Change the `name`, `role`, `school`, `photo` URL,
+`contacts` array, and `paragraphs` array. Comments in the file explain each field.
+
+---
 
 ### Add a new skill card
-**File:** `server/data/skills.json` — add an object to the array:
-```json
-{ "name": "Blender", "description": "3D Modeling & Rendering" }
+**File:** `src/data/skills.js`
+
+Copy this and add it to the array:
+```js
+{ name: "Blender", description: "3D Modeling & Rendering" },
 ```
+
+---
 
 ### Add a new game to the portfolio
-**File:** `server/data/games.json` — add an object to the array:
-```json
+**File:** `src/data/games.js`
+
+Copy this template and fill it in:
+```js
 {
-  "title":       "My New Game",
-  "image":       "https://link-to-cover-image.png",
-  "url":         "https://loden-campbell.itch.io/my-new-game",
-  "platform":    "itch.io",
-  "tags":        ["Unity", "C#"],
-  "description": "A short description (optional)"
-}
+  title:       "My New Game",
+  image:       "https://link-to-cover-image.png",
+  url:         "https://loden-campbell.itch.io/my-new-game",
+  platform:    "itch.io",
+  tags:        ["Unity", "C#"],
+  description: "A short description (leave as empty string \"\" to hide)",
+},
 ```
+
+---
 
 ### Add a new software project
-**File:** `server/data/software.json`:
-```json
+**File:** `src/data/software.js`
+
+```js
 {
-  "title":       "Cool App",
-  "logo":        "https://link-to-logo.png",
-  "url":         "https://github.com/you/cool-app",
-  "description": "What the project does",
-  "tags":        ["Python", "React"]
-}
+  title:       "My App",
+  logo:        "https://link-to-logo.png",   // remove this line if no logo
+  url:         "https://github.com/shboomba/my-app",
+  description: "What the project does.",
+  tags:        ["Python", "React"],
+},
 ```
 
 ---
 
-## 🎨 How to Change the Design
+### Add or remove a nav link
+**File:** `src/data/nav.js`
+
+```js
+{ label: "Blog", page: "blog" },
+```
+
+Then create `src/pages/Blog.jsx` and add it to `src/App.jsx` (see "Add a new page" below).
+
+---
+
+## 🎨 Changing the Design
 
 ### Colors, fonts, spacing
-Everything visual is controlled by CSS variables at the top of:  
-**`client/src/styles/global.css`**
+**File:** `src/styles/global.css` — top of the file, inside `:root { ... }`
 
-```css
-:root {
-  --color-bg:      #07070d;      /* page background */
-  --color-accent:  #00ffaa;      /* neon green — main highlight color */
-  --color-accent2: #ff6b35;      /* orange — secondary accent */
-  --font-heading:  'Orbitron';   /* display font */
-  --font-body:     'Outfit';     /* body text font */
+| Variable           | What it controls              | Default        |
+|--------------------|-------------------------------|----------------|
+| `--color-bg`       | Page background               | `#07070d`      |
+| `--color-accent`   | Neon green highlight color    | `#00ffaa`      |
+| `--color-accent2`  | Orange secondary accent       | `#ff6b35`      |
+| `--color-text`     | Body text                     | `#e4e4f0`      |
+| `--color-muted`    | De-emphasized text            | `#6060a0`      |
+| `--font-heading`   | Display font (titles)         | Orbitron       |
+| `--font-body`      | Body text font                | Outfit         |
+| `--font-mono`      | Labels, tags, nav links       | Fira Code      |
+
+Change any of these and every component updates automatically.
+
+### Changing a specific card type
+- **Skill card appearance** → `src/components/SkillCard.jsx`
+- **Game card appearance** → `src/components/GameCard.jsx`
+- **Software card appearance** → `src/components/SoftwareCard.jsx`
+
+### Changing a page's layout
+- **Home page** (hero, bio, skills layout) → `src/pages/Home.jsx`
+- **Portfolio page** → `src/pages/Portfolio.jsx`
+- **Other Projects page** → `src/pages/OtherProjects.jsx`
+
+---
+
+## 📄 Adding a New Page
+
+**Step 1:** Create the page file
+```
+src/pages/Blog.jsx
+```
+```jsx
+export default function Blog() {
+  return (
+    <div style={{ paddingTop: "var(--nav-height)" }}>
+      <div className="section-wrap">
+        <div className="section-label">Blog</div>
+        <h2 className="section-title">My Posts</h2>
+        {/* your content here */}
+      </div>
+    </div>
+  );
 }
 ```
-Change these and every component updates at once.
 
-### Changing a card's layout or style
-- Edit `client/src/components/SkillCard.jsx` for skill cards
-- Edit `client/src/components/GameCard.jsx` for game cards
-- Edit `client/src/components/SoftwareCard.jsx` for software cards
+**Step 2:** Add it to the router in `src/App.jsx`
+```jsx
+import Blog from "./pages/Blog";
 
----
+// inside renderPage():
+case "blog": return <Blog />;
+```
 
-## 📄 How to Add a New Page
+**Step 3:** Add the nav link in `src/data/nav.js`
+```js
+{ label: "Blog", page: "blog" },
+```
 
-1. Create `client/src/pages/MyPage.jsx`
-2. Import it in `client/src/App.jsx` and add a case:
-   ```jsx
-   import MyPage from "./pages/MyPage";
-   // inside renderPage():
-   case "mypage": return <MyPage />;
-   ```
-3. Add a nav link in `server/data/nav.json`:
-   ```json
-   { "label": "My Page", "page": "mypage" }
-   ```
-The nav link appears automatically — no other changes needed.
+The nav link appears automatically.
 
 ---
 
-## 🌐 Making the Site Public (Anyone Can Visit via Link)
+## 🌐 Deploying (Making It Live at lodencampbell.com)
 
-**Right now this only runs on your computer.** To make it live on the internet
-so anyone can visit it with just a URL, you need to **deploy** it.
+This is a frontend-only project — you only need ONE deployment on Vercel (free).
 
-The easiest free option is:
-
-### Option A — Vercel (Recommended, Free)
-
-Vercel hosts both the React frontend and the Express backend for free.
-
-**Step 1: Push your code to GitHub**
+### Step 1 — Push to GitHub
 ```bash
 git init
 git add .
 git commit -m "initial commit"
-# Create a new repo at github.com, then:
-git remote add origin https://github.com/YOUR_USERNAME/lodencampbell.git
+git branch -M main
+git remote add origin https://github.com/shboomba/LJC-Portfolio-Website.git
 git push -u origin main
 ```
 
-**Step 2: Deploy the backend (API) to Render**
-1. Go to https://render.com → sign up free
-2. Click "New Web Service" → connect your GitHub repo
-3. Set Root Directory to `server`
-4. Build command: `npm install`
-5. Start command: `node server.js`
-6. Click Deploy — you'll get a URL like `https://lodencampbell-api.onrender.com`
+### Step 2 — Deploy on Vercel
+1. Go to https://vercel.com → sign in with GitHub
+2. Click **"Add New Project"** → import your repo
+3. Framework: **Vite** (Vercel will auto-detect this)
+4. Leave all other settings as default
+5. Click **"Deploy"**
 
-**Step 3: Deploy the frontend to Vercel**
-1. Go to https://vercel.com → sign up free with GitHub
-2. Click "Add New Project" → import your GitHub repo
-3. Set Root Directory to `client`
-4. Add an Environment Variable:
-   - Key: `VITE_API_URL`
-   - Value: the Render URL from Step 2 (e.g. `https://lodencampbell-api.onrender.com`)
-5. Click Deploy — you'll get a URL like `https://lodencampbell.vercel.app`
+You'll get a live URL like `https://ljc-portfolio.vercel.app` in about 60 seconds.
 
-**Step 4: Point your domain**
-1. In Vercel → Project Settings → Domains
-2. Add `lodencampbell.com`
-3. Update your domain registrar's DNS records as Vercel instructs
-4. Done — `lodencampbell.com` now points to your self-built site ✅
+### Step 3 — Connect lodencampbell.com
+1. In Vercel → your project → **Settings** → **Domains**
+2. Add `lodencampbell.com` and `www.lodencampbell.com`
+3. Vercel shows you DNS records — something like:
+   ```
+   Type: A      Name: @    Value: 76.76.21.21
+   Type: CNAME  Name: www  Value: cname.vercel-dns.com
+   ```
+4. Go to wherever you bought `lodencampbell.com` (GoDaddy, Namecheap, etc.)
+5. Find DNS settings → delete old A/CNAME records → add Vercel's records
+6. Wait up to an hour (usually just a few minutes)
 
-### Option B — Netlify + Railway (Also Free)
-Same idea: Netlify for the React frontend, Railway for the Express backend.
+Done — `lodencampbell.com` now shows your site.
 
-### Option C — Simplest: Frontend Only (No Backend Needed)
-Since your site content doesn't need a database or authentication, you can
-skip the backend entirely and deploy just the React app. Edit the JSON data
-files inside the client instead of serving them from Express. This works
-perfectly for a personal portfolio that you update occasionally.
+### Updating the site going forward
+```bash
+# Make edits (e.g. add a game to src/data/games.js)
+git add .
+git commit -m "added new game"
+git push
+```
+Vercel auto-deploys in ~30 seconds. No manual steps.
 
 ---
 
 ## 🛠 Tech Stack
 
-| Layer     | Technology          | Why                                      |
-|-----------|---------------------|------------------------------------------|
-| Frontend  | React + Vite        | Component-based, fast dev server, modern |
-| Styling   | Plain CSS variables | No build step, easy to read and edit     |
-| Backend   | Node.js + Express   | Lightweight, serves content as JSON API  |
-| Data      | JSON files          | No database needed, easy to hand-edit    |
-| Deploy    | Vercel + Render     | Free tiers, zero config                  |
-
+| Technology   | Purpose                                      |
+|--------------|----------------------------------------------|
+| React 18     | Component-based UI                           |
+| Vite         | Dev server and build tool (fast)             |
+| Plain CSS     | Global styles via CSS custom properties      |
+| Vercel       | Free hosting with auto-deploy from GitHub    |

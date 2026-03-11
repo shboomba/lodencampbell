@@ -1,0 +1,52 @@
+// ============================================================
+//  src/data/bio.js
+//
+//  YOUR PERSONAL INFO — edit this file to update:
+//    - Your name, title, school
+//    - Profile photo URL
+//    - Contact links
+//    - About me paragraphs
+//    - School logos
+// ============================================================
+
+const bio = {
+  name:   "Loden Campbell",
+  role:   "Software Engineer & Game Developer",
+  school: "MS Computer Science · USC",
+
+  // Your profile photo — swap this URL for any image link
+  photo: "https://lodencampbell.com/wp-content/uploads/2025/05/lodenGradPic-768x917.jpg",
+
+  // Logo shown in the nav bar
+  logo: "https://lodencampbell.com/wp-content/uploads/2025/05/robotLOGO_with_white_border-81x81.png",
+
+  // Links shown under your name on the homepage
+  // href: use "mailto:you@email.com" for email, or "https://..." for links
+  contacts: [
+    { label: "loden.campbell@gmail.com", href: "mailto:loden.campbell@gmail.com" },
+    { label: "ljcampbe@usc.edu",         href: "mailto:ljcampbe@usc.edu" },
+    { label: "LinkedIn",                  href: "http://linkedin.com/in/loden-campbell" },
+  ],
+
+  // School logos shown below your photo
+  schools: [
+    {
+      name: "UW-Madison",
+      logo: "https://lodencampbell.com/wp-content/uploads/2024/10/madison_logo_horizontal-e1727908896708.png",
+    },
+    {
+      name: "USC",
+      logo: "https://lodencampbell.com/wp-content/uploads/2025/05/usc-logo.jpg",
+    },
+  ],
+
+  // About me section — each string is one paragraph
+  // You can use <em>italics</em> or <strong>bold</strong> inside the strings
+  paragraphs: [
+    "I am a recent graduate from UW-Madison, where I earned a Bachelor of Science in Computer Science with minors in Game Design and Mathematics. I am excited to be beginning my next chapter at USC for my Master's in Computer Science with a specialization in Game Development.",
+    "I am passionate about software development and game creation, with expertise in Java, Python, C++, C#, Unity, and other technologies. My project portfolio includes many team-based apps that range from AI training to UI design utilizing UW-Madison APIs. With experience leading teams in hackathons, managing projects, and a solid background in customer service, I am driven to combine technology and creativity to build innovative digital experiences. Outside of work, I enjoy cooking new recipes, gaming, and staying active through sports and weightlifting.",
+    "Some of the games I've recently played and enjoyed are <em>Hollow Knight</em>, <em>Cocoon</em>, <em>Rocket League</em>, and <em>Tiny Glade</em>. I appreciate <em>Hollow Knight</em> for its atmospheric world-building and intricate underlying storyline, while <em>Cocoon</em>'s unique puzzle-solving has inspired me to think outside the box in my own designs. I love the competitive intensity of <em>Rocket League</em>, which feeds my love for fast-paced, skill-based gameplay, and <em>Tiny Glade</em> is a perfect game to decompress with after a long day.",
+  ],
+};
+
+export default bio;
