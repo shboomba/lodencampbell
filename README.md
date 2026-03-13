@@ -9,42 +9,42 @@ A React + Vite portfolio.
 ```
 lodencampbell/
 │
-├── README.md                     ← You are here
-├── package.json                  ← Project dependencies & scripts
-├── vite.config.js                ← Dev server config (don't need to touch this)
-├── index.html                    ← HTML shell (don't need to touch this)
+├── README.md                     ← Outline of my website
+├── package.json                 
+├── vite.config.js                
+├── index.html                    
 │
 └── src/
     │
-    ├── data/                     ← ✏️  EDIT THESE to update site content
-    │   ├── bio.js                ← Your name, photo, about text, contacts, school logos
+    ├── data/                     ← Site content
+    │   ├── bio.js                ← Personal info
     │   ├── nav.js                ← Navigation menu links
-    │   ├── skills.js             ← Skill cards on the homepage
-    │   ├── games.js              ← Game cards on the Portfolio page
-    │   └── software.js           ← Software project cards on the Portfolio page
+    │   ├── skills.js             ← Skill cards data on the homepage
+    │   ├── games.js              ← Game cards data on the Portfolio page
+    │   └── software.js           ← Software project cards data on the Portfolio page
     │
-    ├── components/               ← Reusable UI pieces (edit to change card appearance)
+    ├── components/               ← Reusable UI pieces
     │   ├── Nav.jsx               ← Top navigation bar
-    │   ├── Footer.jsx            ← Site footer
-    │   ├── SkillCard.jsx         ← One skill card — edit to restyle ALL skill cards
-    │   ├── GameCard.jsx          ← One game card — edit to restyle ALL game cards
-    │   └── SoftwareCard.jsx      ← One software card — edit to restyle ALL software cards
+    │   ├── Footer.jsx            ← Footer
+    │   ├── SkillCard.jsx         ← One skill card
+    │   ├── GameCard.jsx          ← One game card
+    │   └── SoftwareCard.jsx      ← One software card
     │
     ├── pages/                    ← One file per page
-    │   ├── Home.jsx              ← Landing page (hero, about, skills)
+    │   ├── Home.jsx              ← Landing page
     │   ├── Portfolio.jsx         ← Games + software projects
-    │   └── OtherProjects.jsx     ← Placeholder for future projects
+    │   └── OtherProjects.jsx     ← Other creative projects I want to showcase
     │
     ├── styles/
-    │   └── global.css            ← 🎨 ALL colors, fonts, spacing — change here first
+    │   └── global.css            ← Colors, fonts, and spacing
     │
-    ├── App.jsx                   ← Page router (add new pages here)
-    └── main.jsx                  ← React entry point (don't need to touch this)
+    ├── App.jsx                   ← Page router
+    └── main.jsx                  ← React entry point
 ```
 
 
 ### Colors, fonts, spacing
-**File:** `src/styles/global.css` — top of the file, inside `:root { ... }`
+From `src/styles/global.css`:
 
 | Variable           | What it controls              | Default        |
 |--------------------|-------------------------------|----------------|
