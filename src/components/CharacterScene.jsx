@@ -2,7 +2,7 @@ import { useEffect, useRef } from "react";
 
 const ACCENT     = "#3dd68c";
 const N          = 3;
-const FALL_FRAC  = 0.40;
+const FALL_FRAC  = 0.65;
 
 const rand = (a, b) => a + Math.random() * (b - a);
 
@@ -18,7 +18,7 @@ class Char {
     this.x         = rand(cw * 0.05, cw * 0.95);
     this.y         = this._groundY(ch);
     this.homeX     = this.x;
-    this.vx        = (i % 2 === 0 ? 1 : -1) * rand(0.38, 0.65);
+    this.vx        = (i % 2 === 0 ? 1 : -1) * rand(0.22, 0.40);
     this.vy        = 0;
     this.facing    = this.vx > 0 ? 1 : -1;
     this.state     = S.WALK;
@@ -45,12 +45,12 @@ class Char {
 
     if (this.state === S.WALK) {
       this.tick++;
-      this.walkPh += 0.072;
+      this.walkPh += 0.048;
       this.x      += this.vx;
       this.y       = ground;
 
       this.vx += (this.homeX - this.x) * 0.00025;
-      this.vx  = Math.sign(this.vx) * Math.min(Math.abs(this.vx), 1.1);
+      this.vx  = Math.sign(this.vx) * Math.min(Math.abs(this.vx), 0.5);
       if (Math.abs(this.vx) > 0.08) this.facing = this.vx > 0 ? 1 : -1;
 
       if (this.x < 24)      { this.x = 24;      this.vx =  Math.abs(this.vx); this.facing =  1; }
@@ -79,7 +79,7 @@ class Char {
     }
 
     else if (this.state === S.SEEK) {
-      this.walkPh += 0.072;
+      this.walkPh += 0.048;
       const dx    = this.targetX - this.x;
       if (Math.abs(dx) > 4) this.facing = dx > 0 ? 1 : -1;
       this.y = ground;
@@ -88,16 +88,16 @@ class Char {
         // arrived — launch upward toward hang point
         this.x     = this.targetX;
         this.vx    = 0;
-        this.vy    = -Math.sqrt(2 * 0.6 * Math.max(ground - this.hangY, 10)) * 1.12;
+        this.vy    = -Math.sqrt(2 * 0.38 * Math.max(ground - this.hangY, 10)) * 1.12;
         this.state = S.JUMP;
       } else {
-        this.vx = Math.sign(dx) * Math.min(Math.abs(dx) * 0.06, 1.0);
+        this.vx = Math.sign(dx) * Math.min(Math.abs(dx) * 0.04, 0.65);
         this.x += this.vx;
       }
     }
 
     else if (this.state === S.JUMP) {
-      this.vy += 0.6;
+      this.vy += 0.38;
       this.y  += this.vy;
       if (this.y <= this.hangY) {
         this.y      = this.hangY;
@@ -109,7 +109,7 @@ class Char {
     }
 
     else if (this.state === S.HANG) {
-      this.hangPh += 0.035;
+      this.hangPh += 0.022;
       this.stTick--;
       if (this.stTick <= 0) {
         this.state  = S.FALL;
@@ -120,13 +120,13 @@ class Char {
     }
 
     else if (this.state === S.WAVE) {
-      this.wavePh += 0.13;
+      this.wavePh += 0.085;
       this.stTick--;
       if (this.stTick <= 0) { this.state = S.WALK; this.vx = this.savedVx; }
     }
 
     else if (this.state === S.FALL) {
-      this.vy      += 0.6;
+      this.vy      += 0.38;
       this.x       += this.vx;
       this.y       += this.vy;
       this.rotAngle += this.rotVel;
@@ -168,22 +168,22 @@ class Char {
     }
 
     else if (this.state === S.BRUSH) {
-      this.wavePh += 0.18;
+      this.wavePh += 0.11;
       this.stTick--;
       if (this.stTick <= 0) {
         this.state = S.WALK;
-        this.vx    = this.facing * rand(0.38, 0.65);
+        this.vx    = this.facing * rand(0.22, 0.40);
       }
     }
 
     else if (this.state === S.DROP) {
-      this.vy += 0.6;
+      this.vy += 0.38;
       this.y  += this.vy;
       if (this.y >= ground) {
         this.y     = ground;
         this.vy    = 0;
         this.state = S.WALK;
-        this.vx    = this.facing * rand(0.38, 0.65);
+        this.vx    = this.facing * rand(0.22, 0.40);
       }
     }
   }
@@ -258,7 +258,11 @@ class Char {
     const armSw = isWalk ? Math.sin(this.walkPh) * 0.28 : 0;
     const lAng  = Math.PI * 0.52 + armSw;
 
-    if (this.state === S.BRUSH) {
+    if (this.state === S.JUMP) {
+      // both arms reaching upward toward the bar
+      ctx.beginPath(); ctx.moveTo(-bW, armY); ctx.lineTo(-bW * 0.35, armY - aL); ctx.stroke();
+      ctx.beginPath(); ctx.moveTo( bW, armY); ctx.lineTo( bW * 0.35, armY - aL); ctx.stroke();
+    } else if (this.state === S.BRUSH) {
       const bAng = Math.PI * 0.28 + Math.abs(Math.sin(this.wavePh)) * 0.55;
       ctx.beginPath(); ctx.moveTo(-bW, armY); ctx.lineTo(-bW - Math.cos(bAng) * aL, armY + Math.sin(bAng) * aL); ctx.stroke();
       ctx.beginPath(); ctx.moveTo( bW, armY); ctx.lineTo( bW + Math.cos(bAng) * aL, armY + Math.sin(bAng) * aL); ctx.stroke();
@@ -382,12 +386,6 @@ export default function CharacterScene({ hangRefs }) {
     };
 
     resize();
-    // Keep refreshing until hang points are resolved (handles fade-in timing)
-    let hpTick = 0;
-    const tryHP = setInterval(() => {
-      updateHP();
-      if (++hpTick >= 10 || hpRef.current.length > 0) clearInterval(tryHP);
-    }, 80);
     window.addEventListener("resize", resize);
 
     const getXY = (e) => {
@@ -432,9 +430,11 @@ export default function CharacterScene({ hangRefs }) {
     window.addEventListener("touchmove",  onMove, { passive: true });
     window.addEventListener("touchend",   onUp);
 
-    let raf;
+    let raf, frame = 0;
     const loop = () => {
       raf = requestAnimationFrame(loop);
+      // Refresh hang points every 60 frames so CSS fade-in animations have settled
+      if (frame++ % 60 === 0) updateHP();
       ctx.clearRect(0, 0, cv.width, cv.height);
       for (const ch of chars.current) { ch.update(cv.width, cv.height, hpRef.current); ch.draw(ctx); }
     };
@@ -442,7 +442,6 @@ export default function CharacterScene({ hangRefs }) {
 
     return () => {
       cancelAnimationFrame(raf);
-      clearInterval(tryHP);
       window.removeEventListener("resize",     resize);
       window.removeEventListener("mousedown",  onDown);
       window.removeEventListener("mousemove",  onMove);
