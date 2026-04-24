@@ -1,0 +1,97 @@
+- generic [active] [ref=e1]:
+  - list [ref=e2]:
+    - listitem [ref=e3]:
+      - link "View all by loden_campbell" [ref=e4] [cursor=pointer]:
+        - /url: https://loden-campbell.itch.io
+        - img [ref=e5]
+        - generic [ref=e7]: View all by loden_campbell
+    - listitem [ref=e8]:
+      - link "Follow loden_campbell" [ref=e9] [cursor=pointer]:
+        - /url: https://itch.io/login?intent=follow_user&return_to=https%3A%2F%2Floden-campbell.itch.io%2Fagainst-the-grain
+        - img [ref=e10]
+        - generic [ref=e13]: Follow loden_campbell
+    - listitem [ref=e14]:
+      - link "Add To Collection" [ref=e15] [cursor=pointer]:
+        - /url: https://itch.io/login?intent=add_to_collection&return_to=https%3A%2F%2Floden-campbell.itch.io%2Fagainst-the-grain
+        - img [ref=e16]
+        - generic [ref=e17]: Add To Collection
+    - listitem [ref=e18]:
+      - link "Related games" [ref=e19] [cursor=pointer]:
+        - /url: https://itch.io/games-like/3171726/against-the-grain
+        - img [ref=e20]
+        - generic [ref=e22]: Related games
+  - generic [ref=e24]:
+    - generic [ref=e25]:
+      - button "Run game" [ref=e29] [cursor=pointer]:
+        - img [ref=e30]
+        - text: Run game
+      - generic [ref=e34]:
+        - generic [ref=e35]:
+          - paragraph [ref=e36]: Play as a little wizard using grain-based abilities to avoid danger and stop the blight that is killing crops!
+          - paragraph [ref=e37]
+          - paragraph [ref=e38]: "Controls:"
+          - paragraph [ref=e39]: WASD to move, with more controls explained as you progress.
+          - paragraph [ref=e40]: "**Arrow keys for ground movement also work, but I do not recommend this"
+          - paragraph [ref=e41]: T to talk with the moles
+          - paragraph [ref=e42]: Q to aim popcorn, E to aim cornstalk. LMB to throw.
+          - paragraph [ref=e43]
+          - paragraph [ref=e44]: "Contributions:"
+          - paragraph [ref=e45]: I...
+          - paragraph [ref=e46]: "- created the Cornstalk and Popcorn abilities using Unity and C# scripting, implementing its growth animation for a smooth and dynamic effect (includes user controls for these abilities)"
+          - paragraph [ref=e47]: "- implemented the trajectory line with Unity’s Animator and a custom material to enhance visual feedback."
+          - paragraph [ref=e48]: "- designed and coded the collectibles system, placing moles near them for interaction."
+          - paragraph [ref=e49]: "- wrote all narrative content and designed the UI, including health and ability counters."
+        - link "More information" [ref=e52] [cursor=pointer]:
+          - /url: javascript:void(0)
+          - text: More information
+          - img [ref=e53]
+        - generic [ref=e55]:
+          - heading "Comments" [level=2] [ref=e56]
+          - paragraph [ref=e57]:
+            - link "Log in with itch.io" [ref=e58] [cursor=pointer]:
+              - /url: https://itch.io/login?return_to=https%3A%2F%2Floden-campbell.itch.io%2Fagainst-the-grain
+            - text: to leave a comment.
+          - generic [ref=e62]:
+            - generic [ref=e63]:
+              - link "Vote up" [ref=e64] [cursor=pointer]:
+                - /url: https://itch.io/login?intent=community&return_to=https%3A%2F%2Floden-campbell.itch.io%2Fagainst-the-grain
+                - img [ref=e65]
+              - link "Vote down" [ref=e67] [cursor=pointer]:
+                - /url: https://itch.io/login?intent=community&return_to=https%3A%2F%2Floden-campbell.itch.io%2Fagainst-the-grain
+                - img [ref=e68]
+            - link [ref=e70] [cursor=pointer]:
+              - /url: https://itch.io/profile/hirshi001
+            - generic [ref=e72]:
+              - link "hirshi001" [ref=e74] [cursor=pointer]:
+                - /url: https://itch.io/profile/hirshi001
+              - generic "2025-02-14 18:46:41" [ref=e75]:
+                - link "1 year ago" [ref=e76] [cursor=pointer]:
+                  - /url: https://itch.io/post/12109843
+            - generic [ref=e77]:
+              - paragraph [ref=e79]: Bro I can't get passed the first leaf jump too hard
+              - link "Reply" [ref=e81] [cursor=pointer]:
+                - /url: https://itch.io/login?intent=community&return_to=https%3A%2F%2Floden-campbell.itch.io%2Fagainst-the-grain
+    - generic [ref=e82]:
+      - link [ref=e83] [cursor=pointer]:
+        - /url: https://itch.io/
+        - img [ref=e84]
+      - link "itch.io" [ref=e86] [cursor=pointer]:
+        - /url: https://itch.io/
+      - generic [ref=e87]: ·
+      - link "View all by loden_campbell" [ref=e88] [cursor=pointer]:
+        - /url: https://loden-campbell.itch.io
+      - generic [ref=e89]: ·
+      - link "Report" [ref=e90] [cursor=pointer]:
+        - /url: javascript:void(0);
+      - generic [ref=e91]: ·
+      - link "Embed" [ref=e92] [cursor=pointer]:
+        - /url: javascript:void(0);
+      - generic [ref=e93]:
+        - link "Games" [ref=e94] [cursor=pointer]:
+          - /url: https://itch.io/games
+        - text: ›
+        - link "Platformer" [ref=e95] [cursor=pointer]:
+          - /url: https://itch.io/games/genre-platformer
+        - text: ›
+        - link "Free" [ref=e96] [cursor=pointer]:
+          - /url: https://itch.io/games/free

@@ -1,29 +1,71 @@
-// ============================================================
-//  src/pages/OtherProjects.jsx
-//
-//  Placeholder page — replace the content below when you have
-//  projects to show. You could also wire up a src/data/other.js
-//  file and map cards here the same way Portfolio.jsx does.
-// ============================================================
+const upcoming = [
+  { label: "Game Project",    desc: "Original game in active development" },
+  { label: "Research",        desc: "Ongoing academic research at USC"    },
+  { label: "More Projects",   desc: "Additional work coming soon"         },
+];
 
 export default function OtherProjects() {
   return (
     <div style={{ paddingTop: "var(--nav-height)" }}>
       <div className="section-wrap">
         <div className="section-label fade-up">Other Projects</div>
-        <div style={{ display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", gap: 24, padding: "80px 0", textAlign: "center" }}>
-          <div style={{ fontFamily: "var(--font-mono)", fontSize: 13, color: "var(--color-accent)", letterSpacing: "3px", textTransform: "uppercase" }}>
-            Status: <span style={{ animation: "blink 1.2s step-end infinite" }}>█</span>
-          </div>
-          <h2 style={{ fontFamily: "var(--font-heading)", fontSize: "clamp(36px, 6vw, 68px)", fontWeight: 900, color: "var(--color-text)" }}>
-            In Progress...
-          </h2>
-          <div style={{ width: 280, height: 4, background: "var(--color-surface2)", borderRadius: 99, overflow: "hidden" }}>
-            <div style={{ height: "100%", background: "linear-gradient(90deg, var(--color-accent), var(--color-accent2))", borderRadius: 99, animation: "progressPulse 2s ease-in-out infinite alternate" }} />
-          </div>
-          <p style={{ fontFamily: "var(--font-mono)", fontSize: 12, color: "var(--color-muted)", letterSpacing: 1 }}>
-            More coming soon — stay tuned.
-          </p>
+        <h2 className="section-title fade-up delay-1">Active Work</h2>
+
+        <p className="fade-up delay-2" style={{
+          fontFamily: "var(--font-body)",
+          fontSize:   15,
+          color:      "var(--color-muted)",
+          maxWidth:   560,
+          lineHeight: 1.7,
+          marginBottom: 48,
+        }}>
+          This section is being built out. Projects below are currently in development and will be detailed here as they reach a shareable state.
+        </p>
+
+        <div style={{ display: "flex", flexDirection: "column", gap: 1 }}>
+          {upcoming.map((item, i) => (
+            <div
+              key={item.label}
+              className="fade-up"
+              style={{
+                animationDelay:  `${0.08 * i}s`,
+                display:         "flex",
+                alignItems:      "center",
+                gap:             24,
+                padding:         "24px 0",
+                borderBottom:    "1px solid var(--color-border)",
+              }}
+            >
+              <span style={{
+                fontFamily:    "var(--font-mono)",
+                fontSize:      10,
+                letterSpacing: "2px",
+                textTransform: "uppercase",
+                color:         "var(--color-accent)",
+                minWidth:      60,
+              }}>
+                WIP
+              </span>
+              <div>
+                <div style={{
+                  fontFamily: "var(--font-body)",
+                  fontSize:   16,
+                  fontWeight: 600,
+                  color:      "var(--color-text)",
+                  marginBottom: 4,
+                }}>
+                  {item.label}
+                </div>
+                <div style={{
+                  fontFamily: "var(--font-body)",
+                  fontSize:   13,
+                  color:      "var(--color-muted)",
+                }}>
+                  {item.desc}
+                </div>
+              </div>
+            </div>
+          ))}
         </div>
       </div>
     </div>

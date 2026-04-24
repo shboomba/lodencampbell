@@ -13,8 +13,6 @@ const nav = [
   { label: "Home",           page: "home" },
   { label: "Portfolio",      page: "portfolio" },
   { label: "Other Projects", page: "other" },
-
-  // { label: "Blog", page: "blog" },
 ];
 
 export default nav;

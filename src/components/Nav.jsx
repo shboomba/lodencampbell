@@ -18,7 +18,7 @@ export default function Nav({ activePage, onNavigate }) {
     <>
       <nav style={{
         position: "fixed", top: 0, left: 0, right: 0, zIndex: 100,
-        display: "flex", alignItems: "center", justifyContent: "space-between",
+        display: "grid", gridTemplateColumns: "1fr auto 1fr", alignItems: "center",
         padding: "0 60px", height: "var(--nav-height)",
         background: "var(--color-nav-bg)", backdropFilter: "blur(20px)",
         borderBottom: "1px solid var(--color-border)",
@@ -42,6 +42,9 @@ export default function Nav({ activePage, onNavigate }) {
             }}>{item.label}</button>
           ))}
         </div>
+
+        {/* Spacer to balance the logo on the left */}
+        <div />
 
         <button onClick={() => setMenuOpen((o) => !o)} className="nav-hamburger"
           style={{ display: "none", flexDirection: "column", gap: 5, background: "none", border: "none", cursor: "pointer", padding: 8 }}>

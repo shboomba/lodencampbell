@@ -1,56 +1,36 @@
-// ============================================================
-//  src/data/games.js
-//
-//  PORTFOLIO — GAMES — each object = one game card.
-//
-//  To add a game:    copy the template at the bottom and fill it in
-//  To remove a game: delete its object
-//  To reorder:       move objects up or down
-// ============================================================
-
 const games = [
   {
     title:       "Against the Grain",
-    image:       "https://lodencampbell.com/wp-content/uploads/2025/03/3-870x1024.png",
+    image:       "/games/against-the-grain.png",
     url:         "https://loden-campbell.itch.io/against-the-grain",
     platform:    "itch.io",
-    tags:        ["Unity", "C#"],
-    description: "Testing", // optional — leave empty string to hide
+    tags:        ["Unity", "C#", "Platformer", "2D"],
+    description: "Play as a wizard with grain-based abilities to stop a blight terrorizing the crops.",
   },
   {
     title:       "On Par",
-    image:       "https://lodencampbell.com/wp-content/uploads/2025/03/4-870x1024.png",
+    image:       "/games/on-par.png",
     url:         "https://loden-campbell.itch.io/on-par",
     platform:    "itch.io",
-    tags:        ["Unity", "C#"],
-    description: "",
+    tags:        ["Unity", "C#", "Platformer", "Speedrun"],
+    description: "Golf-themed platformer built for speedrunning. Collect balls and race through each course.",
   },
   {
     title:       "Desolate Remnants",
-    image:       "https://lodencampbell.com/wp-content/uploads/2025/03/1-1-870x1024.png",
+    image:       "/games/desolate-remnants.png",
     url:         "https://loden-campbell.itch.io/desolate-remnants",
     platform:    "itch.io",
-    tags:        ["Unity", "C#"],
-    description: "",
+    tags:        ["Unity", "C#", "Puzzle", "Physics"],
+    description: "Physics-driven puzzle platformer set in a desolate pixel art world.",
   },
   {
     title:       "The Cave",
-    image:       "https://lodencampbell.com/wp-content/uploads/2025/03/2-1-870x1024.png",
+    image:       "/games/the-cave.png",
     url:         "https://loden-campbell.itch.io/the-cave",
     platform:    "itch.io",
-    tags:        ["Unity", "C#"],
-    description: "",
+    tags:        ["Twine", "Narrative", "Interactive Fiction"],
+    description: "Click through a story-driven adventure as a protagonist journeys through a magical cave.",
   },
-
-  // ── ADD NEW GAMES BELOW ───────────────────────────────────
-  // {
-  //   title:       "My New Game",
-  //   image:       "https://link-to-cover-image.png",
-  //   url:         "https://loden-campbell.itch.io/my-new-game",
-  //   platform:    "itch.io",
-  //   tags:        ["Unity", "C#"],
-  //   description: "A short description of the game.",
-  // },
 ];
 
 export default games;

@@ -1,49 +1,88 @@
-// ============================================================
-//  src/components/GameCard.jsx
-//
-//  Displays one game in the Portfolio page.
-//  Edit the styles in this file to change how ALL game cards look.
-//
-//  Data comes from: src/data/games.js
-// ============================================================
-
 import { useState } from "react";
 
 export default function GameCard({ title, image, url, platform, tags, description }) {
   const [hovered, setHovered] = useState(false);
   return (
-    <a href={url} target="_blank" rel="noreferrer"
-      onMouseEnter={() => setHovered(true)} onMouseLeave={() => setHovered(false)}
+    <a
+      href={url}
+      target="_blank"
+      rel="noreferrer"
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
       style={{
-        display: "block", textDecoration: "none",
-        background: "var(--color-surface)",
-        border: `1px solid ${hovered ? "rgba(61,214,140,0.4)" : "var(--color-border)"}`,
-        borderRadius: "var(--radius)", overflow: "hidden", transition: "all 0.3s",
-        transform: hovered ? "translateY(-5px)" : "none",
-        boxShadow: hovered ? "0 16px 40px rgba(0,0,0,0.4)" : "0 1px 6px rgba(0,0,0,0.2)",
-      }}>
-      <div style={{ overflow: "hidden", aspectRatio: "7/8" }}>
-        <img src={image} alt={title} style={{
-          width: "100%", height: "100%", objectFit: "cover", display: "block",
-          transition: "transform 0.4s", transform: hovered ? "scale(1.05)" : "scale(1)",
-        }} />
+        display:        "flex",
+        flexDirection:  "column",
+        textDecoration: "none",
+        height:         "100%",
+        background:     "var(--color-surface)",
+        border:         `1px solid ${hovered ? "rgba(61,214,140,0.35)" : "var(--color-border)"}`,
+        borderRadius:   "var(--radius)",
+        overflow:       "hidden",
+        transition:     "border-color 0.2s, background 0.2s",
+      }}
+    >
+      {/* Cover image */}
+      <div style={{ overflow: "hidden", aspectRatio: "16/11" }}>
+        <img
+          src={image}
+          alt={title}
+          style={{
+            width:      "100%",
+            height:     "100%",
+            objectFit:  "cover",
+            display:    "block",
+            transition: "transform 0.35s ease",
+            transform:  hovered ? "scale(1.04)" : "scale(1)",
+          }}
+        />
       </div>
-      <div style={{ padding: "14px 16px" }}>
+
+      {/* Card body */}
+      <div style={{ padding: "16px 18px", display: "flex", flexDirection: "column", gap: 8, flex: 1 }}>
+
+        {/* Platform badge */}
+        <span style={{
+          fontFamily:    "var(--font-mono)",
+          fontSize:      10,
+          letterSpacing: "2px",
+          textTransform: "uppercase",
+          color:         "var(--color-accent)",
+        }}>
+          {platform}
+        </span>
+
+        {/* Title */}
         <div style={{
-          fontFamily: "var(--font-heading)", fontSize: 12, fontWeight: 700,
-          color: "var(--color-text)", marginBottom: 6, letterSpacing: "0.5px",
-        }}>{title}</div>
+          fontFamily:  "var(--font-body)",
+          fontSize:    15,
+          fontWeight:  700,
+          color:       hovered ? "var(--color-accent)" : "var(--color-text)",
+          transition:  "color 0.2s",
+          lineHeight:  1.3,
+        }}>
+          {title}
+        </div>
+
+        {/* Description */}
         {description && (
-          <div style={{ fontFamily: "var(--font-body)", fontSize: 12, color: "var(--color-muted)", marginBottom: 8 }}>
+          <div style={{
+            fontFamily: "var(--font-body)",
+            fontSize:   13,
+            color:      "var(--color-muted)",
+            lineHeight: 1.6,
+          }}>
             {description}
           </div>
         )}
-        <div style={{ display: "flex", gap: 6, flexWrap: "wrap", alignItems: "center" }}>
-          <span style={{ fontFamily: "var(--font-mono)", fontSize: 10, color: "var(--color-accent)", letterSpacing: "2px", textTransform: "uppercase" }}>
-            {platform}
-          </span>
-          {tags?.map((tag) => <span key={tag} className="tag">{tag}</span>)}
-        </div>
+
+        {/* Tags */}
+        {tags?.length > 0 && (
+          <div style={{ display: "flex", gap: 6, flexWrap: "wrap", marginTop: 4 }}>
+            {tags.map(tag => (
+              <span key={tag} className="tag">{tag}</span>
+            ))}
+          </div>
+        )}
       </div>
     </a>
   );

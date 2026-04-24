@@ -1,0 +1,84 @@
+- generic [ref=e2]:
+  - navigation [ref=e3]:
+    - generic [ref=e4] [cursor=pointer]:
+      - img "Logo" [ref=e5]
+      - generic [ref=e6]: Loden Campbell
+    - generic [ref=e7]:
+      - button "Home" [ref=e8] [cursor=pointer]
+      - button "Work" [active] [ref=e9] [cursor=pointer]
+      - button "Other Projects" [ref=e10] [cursor=pointer]
+  - main [ref=e83]:
+    - generic [ref=e85]:
+      - generic [ref=e86]: Work
+      - heading "Software Projects" [level=2] [ref=e87]
+      - generic [ref=e90] [cursor=pointer]:
+        - img "PBS Wisconsin Recommendation Engine" [ref=e93]
+        - generic [ref=e95]:
+          - generic [ref=e96]: PBS Wisconsin Recommendation Engine
+          - generic [ref=e97]: Full-stack content personalization system — NLP, ML model, Flask backend, React frontend
+          - generic [ref=e98]:
+            - generic [ref=e99]: Python
+            - generic [ref=e100]: Flask
+            - generic [ref=e101]: React
+            - generic [ref=e102]: ML
+            - generic [ref=e103]: NLP
+        - generic [ref=e104]: →
+      - generic [ref=e105]:
+        - generic [ref=e106]: Games
+        - generic [ref=e107]:
+          - link "Against the Grain itch.io Against the Grain Play as a wizard with grain-based abilities to stop a blight terrorizing the crops. Unity C# Platformer 2D" [ref=e109] [cursor=pointer]:
+            - /url: https://loden-campbell.itch.io/against-the-grain
+            - img "Against the Grain" [ref=e111]
+            - generic [ref=e112]:
+              - generic [ref=e113]: itch.io
+              - generic [ref=e114]: Against the Grain
+              - generic [ref=e115]: Play as a wizard with grain-based abilities to stop a blight terrorizing the crops.
+              - generic [ref=e116]:
+                - generic [ref=e117]: Unity
+                - generic [ref=e118]: C#
+                - generic [ref=e119]: Platformer
+                - generic [ref=e120]: 2D
+          - link "On Par itch.io On Par Golf-themed platformer built for speedrunning. Collect balls and race through each course. Unity C# Platformer Speedrun" [ref=e122] [cursor=pointer]:
+            - /url: https://loden-campbell.itch.io/on-par
+            - img "On Par" [ref=e124]
+            - generic [ref=e125]:
+              - generic [ref=e126]: itch.io
+              - generic [ref=e127]: On Par
+              - generic [ref=e128]: Golf-themed platformer built for speedrunning. Collect balls and race through each course.
+              - generic [ref=e129]:
+                - generic [ref=e130]: Unity
+                - generic [ref=e131]: C#
+                - generic [ref=e132]: Platformer
+                - generic [ref=e133]: Speedrun
+          - link "Desolate Remnants itch.io Desolate Remnants Physics-driven puzzle platformer set in a desolate pixel art world. Unity C# Puzzle Physics" [ref=e135] [cursor=pointer]:
+            - /url: https://loden-campbell.itch.io/desolate-remnants
+            - img "Desolate Remnants" [ref=e137]
+            - generic [ref=e138]:
+              - generic [ref=e139]: itch.io
+              - generic [ref=e140]: Desolate Remnants
+              - generic [ref=e141]: Physics-driven puzzle platformer set in a desolate pixel art world.
+              - generic [ref=e142]:
+                - generic [ref=e143]: Unity
+                - generic [ref=e144]: C#
+                - generic [ref=e145]: Puzzle
+                - generic [ref=e146]: Physics
+          - link "The Cave itch.io The Cave Click through a story-driven adventure as a protagonist journeys through a magical cave. Twine Narrative Interactive Fiction" [ref=e148] [cursor=pointer]:
+            - /url: https://loden-campbell.itch.io/the-cave
+            - img "The Cave" [ref=e150]
+            - generic [ref=e151]:
+              - generic [ref=e152]: itch.io
+              - generic [ref=e153]: The Cave
+              - generic [ref=e154]: Click through a story-driven adventure as a protagonist journeys through a magical cave.
+              - generic [ref=e155]:
+                - generic [ref=e156]: Twine
+                - generic [ref=e157]: Narrative
+                - generic [ref=e158]: Interactive Fiction
+  - contentinfo [ref=e77]:
+    - generic [ref=e78]: © 2026 Loden Campbell
+    - generic [ref=e79]:
+      - link "LinkedIn" [ref=e80] [cursor=pointer]:
+        - /url: http://linkedin.com/in/loden-campbell
+      - link "loden.campbell@gmail.com" [ref=e81] [cursor=pointer]:
+        - /url: mailto:loden.campbell@gmail.com
+      - link "ljcampbe@usc.edu" [ref=e82] [cursor=pointer]:
+        - /url: mailto:ljcampbe@usc.edu

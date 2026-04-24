@@ -1,0 +1,81 @@
+- generic [ref=e2]:
+  - navigation [ref=e3]:
+    - generic [ref=e4] [cursor=pointer]:
+      - img "Logo" [ref=e5]
+      - generic [ref=e6]: Loden Campbell
+    - generic [ref=e7]:
+      - button "Home" [ref=e8] [cursor=pointer]
+      - button "Work" [ref=e9] [cursor=pointer]
+      - button "Other Projects" [ref=e10] [cursor=pointer]
+  - main [ref=e11]:
+    - generic [ref=e12]:
+      - generic [ref=e13]:
+        - generic [ref=e14]: Software Engineer & Game Developer
+        - heading "Loden Campbell" [level=1] [ref=e16]:
+          - generic [ref=e17]: Loden
+          - generic [ref=e18]: Campbell
+        - generic [ref=e19]:
+          - generic [ref=e20]: MS Computer Science · USC · Game Dev
+          - generic [ref=e21]: BS Computer Science · UW-Madison
+        - generic [ref=e22]:
+          - link "LinkedIn" [ref=e23] [cursor=pointer]:
+            - /url: http://linkedin.com/in/loden-campbell
+            - img [ref=e24]
+            - text: LinkedIn
+          - link "loden.campbell@gmail.com" [ref=e28] [cursor=pointer]:
+            - /url: mailto:loden.campbell@gmail.com
+            - img [ref=e29]
+            - text: loden.campbell@gmail.com
+          - link "ljcampbe@usc.edu" [ref=e32] [cursor=pointer]:
+            - /url: mailto:ljcampbe@usc.edu
+            - img [ref=e33]
+            - text: ljcampbe@usc.edu
+        - button "View My Work" [ref=e37] [cursor=pointer]
+      - separator [ref=e38]
+      - generic [ref=e39]:
+        - generic [ref=e40]: About
+        - heading "Hi, I'm Loden." [level=2] [ref=e41]
+        - generic [ref=e42]:
+          - generic [ref=e43]:
+            - paragraph [ref=e44]: I am a recent graduate from UW-Madison, where I earned a Bachelor of Science in Computer Science with minors in Game Design and Mathematics. I am currently pursuing my Master's in Computer Science at USC with a specialization in Game Development.
+            - paragraph [ref=e45]: I am passionate about software development and game creation, with expertise in Java, Python, C++, C#, Unity, and other technologies. My project portfolio includes team-based apps ranging from AI/ML systems to full-stack web applications. With experience leading teams in hackathons and managing projects end-to-end, I am driven to combine technology and creativity to build innovative digital experiences.
+          - generic [ref=e46]:
+            - img "UW-Madison" [ref=e47]
+            - img "USC" [ref=e48]
+      - separator [ref=e49]
+      - generic [ref=e50]:
+        - generic [ref=e51]: Skills
+        - heading "Technical Toolkit" [level=2] [ref=e52]
+        - generic [ref=e53]:
+          - generic [ref=e54]:
+            - generic [ref=e55]: Languages
+            - generic [ref=e56]:
+              - generic [ref=e57]: Python
+              - generic [ref=e58]: Java
+              - generic [ref=e59]: C#
+              - generic [ref=e60]: C++
+              - generic [ref=e61]: JavaScript
+          - generic [ref=e62]:
+            - generic [ref=e63]: Tools
+            - generic [ref=e64]:
+              - generic [ref=e65]: React
+              - generic [ref=e66]: Flask
+              - generic [ref=e67]: Unity
+              - generic [ref=e68]: Maya Autodesk
+              - generic [ref=e69]: Git
+          - generic [ref=e70]:
+            - generic [ref=e71]: Strengths
+            - generic [ref=e72]:
+              - generic [ref=e73]: Project Leadership
+              - generic [ref=e74]: Game Design
+              - generic [ref=e75]: Team Collaboration
+              - generic [ref=e76]: AI / ML
+  - contentinfo [ref=e77]:
+    - generic [ref=e78]: © 2026 Loden Campbell
+    - generic [ref=e79]:
+      - link "LinkedIn" [ref=e80] [cursor=pointer]:
+        - /url: http://linkedin.com/in/loden-campbell
+      - link "loden.campbell@gmail.com" [ref=e81] [cursor=pointer]:
+        - /url: mailto:loden.campbell@gmail.com
+      - link "ljcampbe@usc.edu" [ref=e82] [cursor=pointer]:
+        - /url: mailto:ljcampbe@usc.edu
