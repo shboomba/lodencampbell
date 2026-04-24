@@ -14,11 +14,11 @@ const S = {
 
 class Char {
   constructor(i, cw, ch) {
-    this.size      = rand(18, 24);
+    this.size      = rand(13, 18);
     this.x         = rand(cw * 0.05, cw * 0.95);
     this.y         = this._groundY(ch);
     this.homeX     = this.x;
-    this.vx        = (i % 2 === 0 ? 1 : -1) * rand(0.22, 0.40);
+    this.vx        = (i % 2 === 0 ? 1 : -1) * rand(0.38, 0.65);
     this.vy        = 0;
     this.facing    = this.vx > 0 ? 1 : -1;
     this.state     = S.WALK;
@@ -40,17 +40,17 @@ class Char {
 
   _groundY(ch) { return ch - 2 - this.size * 1.06; }
 
-  update(cw, ch, hangPoints) {
+  update(cw, ch, hangPoints, allChars) {
     const ground = this._groundY(ch);
 
     if (this.state === S.WALK) {
       this.tick++;
-      this.walkPh += 0.048;
+      this.walkPh += 0.072;
       this.x      += this.vx;
       this.y       = ground;
 
       this.vx += (this.homeX - this.x) * 0.00025;
-      this.vx  = Math.sign(this.vx) * Math.min(Math.abs(this.vx), 0.5);
+      this.vx  = Math.sign(this.vx) * Math.min(Math.abs(this.vx), 1.1);
       if (Math.abs(this.vx) > 0.08) this.facing = this.vx > 0 ? 1 : -1;
 
       if (this.x < 24)      { this.x = 24;      this.vx =  Math.abs(this.vx); this.facing =  1; }
@@ -59,8 +59,16 @@ class Char {
       // hang trigger
       this.nextHang--;
       if (this.nextHang <= 0 && hangPoints.length > 0) {
-        const hp       = hangPoints[Math.floor(Math.random() * hangPoints.length)];
-        this.targetX   = hp.x;
+        const hp = hangPoints[Math.floor(Math.random() * hangPoints.length)];
+        // Count others already hanging/jumping/seeking at this button
+        const atBtn = allChars.filter(c => c !== this &&
+          (c.state === S.HANG || c.state === S.JUMP || c.state === S.SEEK) &&
+          Math.abs(c.hangY - hp.y) < 10
+        );
+        const slot    = atBtn.length;
+        const spacing = this.size * 3.2;
+        const offset  = slot === 0 ? 0 : (slot % 2 === 1 ? 1 : -1) * Math.ceil(slot / 2) * spacing;
+        this.targetX   = Math.max(24, Math.min(cw - 24, hp.x + offset));
         this.hangY     = hp.y;
         this.savedVx   = this.vx;
         this.state     = S.SEEK;
@@ -79,7 +87,7 @@ class Char {
     }
 
     else if (this.state === S.SEEK) {
-      this.walkPh += 0.048;
+      this.walkPh += 0.072;
       const dx    = this.targetX - this.x;
       if (Math.abs(dx) > 4) this.facing = dx > 0 ? 1 : -1;
       this.y = ground;
@@ -88,16 +96,16 @@ class Char {
         // arrived — launch upward toward hang point
         this.x     = this.targetX;
         this.vx    = 0;
-        this.vy    = -Math.sqrt(2 * 0.38 * Math.max(ground - this.hangY, 10)) * 1.12;
+        this.vy    = -Math.sqrt(2 * 0.6 * Math.max(ground - this.hangY, 10)) * 1.12;
         this.state = S.JUMP;
       } else {
-        this.vx = Math.sign(dx) * Math.min(Math.abs(dx) * 0.04, 0.65);
+        this.vx = Math.sign(dx) * Math.min(Math.abs(dx) * 0.06, 1.0);
         this.x += this.vx;
       }
     }
 
     else if (this.state === S.JUMP) {
-      this.vy += 0.38;
+      this.vy += 0.6;
       this.y  += this.vy;
       if (this.y <= this.hangY) {
         this.y      = this.hangY;
@@ -109,7 +117,7 @@ class Char {
     }
 
     else if (this.state === S.HANG) {
-      this.hangPh += 0.022;
+      this.hangPh += 0.035;
       this.stTick--;
       if (this.stTick <= 0) {
         this.state  = S.FALL;
@@ -120,7 +128,7 @@ class Char {
     }
 
     else if (this.state === S.WAVE) {
-      this.wavePh += 0.085;
+      this.wavePh += 0.13;
       this.stTick--;
       if (this.stTick <= 0) { this.state = S.WALK; this.vx = this.savedVx; }
     }
@@ -141,19 +149,20 @@ class Char {
         this.vx       = 0;
         this.rotAngle = 0;
         this.state    = S.LAND;
-        this.stTick   = 24;
+        this.stTick   = 55;
         this.scaleY   = 0.38;
       }
     }
 
     else if (this.state === S.LAND) {
-      this.scaleY += (1 - this.scaleY) * 0.16;
       this.stTick--;
+      // spring up only in the last 14 frames, hold flat until then
+      if (this.stTick < 14) this.scaleY += (1 - this.scaleY) * 0.22;
       if (this.stTick <= 0) {
-        this.scaleY    = 1;
-        this.state     = S.GETUP;
-        this.stTick    = 42;
-        this.getupProg = 0;
+        this.scaleY = 1;
+        this.state  = S.BRUSH;
+        this.stTick = 55;
+        this.wavePh = 0;
       }
     }
 
@@ -168,22 +177,22 @@ class Char {
     }
 
     else if (this.state === S.BRUSH) {
-      this.wavePh += 0.11;
+      this.wavePh += 0.18;
       this.stTick--;
       if (this.stTick <= 0) {
         this.state = S.WALK;
-        this.vx    = this.facing * rand(0.22, 0.40);
+        this.vx    = this.facing * rand(0.38, 0.65);
       }
     }
 
     else if (this.state === S.DROP) {
-      this.vy += 0.38;
+      this.vy += 0.6;
       this.y  += this.vy;
       if (this.y >= ground) {
         this.y     = ground;
         this.vy    = 0;
         this.state = S.WALK;
-        this.vx    = this.facing * rand(0.22, 0.40);
+        this.vx    = this.facing * rand(0.38, 0.65);
       }
     }
   }
@@ -379,9 +388,21 @@ export default function CharacterScene({ hangRefs }) {
     };
 
     const resize = () => {
+      const oldH = cv.height;
       cv.width  = cv.offsetWidth;
       cv.height = cv.offsetHeight;
-      chars.current = Array.from({ length: N }, (_, i) => new Char(i, cv.width, cv.height));
+
+      if (chars.current.length === 0) {
+        chars.current = Array.from({ length: N }, (_, i) => new Char(i, cv.width, cv.height));
+      } else {
+        for (const ch of chars.current) {
+          const oldGround = oldH - 2 - ch.size * 1.06;
+          const newGround = cv.height - 2 - ch.size * 1.06;
+          if (Math.abs(ch.y - oldGround) < 2) ch.y = newGround;
+          ch.x     = Math.max(24, Math.min(cv.width - 24, ch.x));
+          ch.homeX = Math.max(24, Math.min(cv.width - 24, ch.homeX));
+        }
+      }
       updateHP();
     };
 
@@ -436,7 +457,7 @@ export default function CharacterScene({ hangRefs }) {
       // Refresh hang points every 60 frames so CSS fade-in animations have settled
       if (frame++ % 60 === 0) updateHP();
       ctx.clearRect(0, 0, cv.width, cv.height);
-      for (const ch of chars.current) { ch.update(cv.width, cv.height, hpRef.current); ch.draw(ctx); }
+      for (const ch of chars.current) { ch.update(cv.width, cv.height, hpRef.current, chars.current); ch.draw(ctx); }
     };
     loop();
 
