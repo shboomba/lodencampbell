@@ -144,34 +144,36 @@ class Char {
       if (this.x > cw - 20) { this.x = cw - 20; this.vx = -Math.abs(this.vx) * 0.55; }
 
       if (this.y >= ground) {
-        this.y        = ground;
-        this.vy       = 0;
-        this.vx       = 0;
-        this.rotAngle = 0;
-        this.state    = S.LAND;
-        this.stTick   = 55;
-        this.scaleY   = 0.38;
+        this.y      = ground;
+        this.vy     = 0;
+        this.vx     = 0;
+        this.state  = S.LAND;
+        this.stTick = 16;
+        this.scaleY = 0.38;
+        // rotAngle left intact — decays naturally during LAND
       }
     }
 
     else if (this.state === S.LAND) {
+      this.scaleY   += (1 - this.scaleY) * 0.26;
+      this.rotAngle *= 0.72;
       this.stTick--;
-      // spring up only in the last 14 frames, hold flat until then
-      if (this.stTick < 14) this.scaleY += (1 - this.scaleY) * 0.22;
       if (this.stTick <= 0) {
-        this.scaleY = 1;
-        this.state  = S.BRUSH;
-        this.stTick = 55;
-        this.wavePh = 0;
+        this.scaleY    = 1;
+        this.rotAngle  = 0;
+        this.state     = S.GETUP;
+        this.stTick    = 52;
+        this.wavePh    = 0;
+        this.getupProg = 0;
       }
     }
 
     else if (this.state === S.GETUP) {
+      this.wavePh += 0.11;
       this.stTick--;
-      this.getupProg = 1 - (this.stTick / 42);
       if (this.stTick <= 0) {
         this.state  = S.BRUSH;
-        this.stTick = 55;
+        this.stTick = 65;
         this.wavePh = 0;
       }
     }
@@ -225,11 +227,10 @@ class Char {
     ctx.save();
     ctx.translate(this.x, this.y);
 
-    if (this.state === S.FALL) ctx.rotate(this.rotAngle);
+    if (this.state === S.FALL || this.state === S.LAND) ctx.rotate(this.rotAngle);
 
-    if (this.state === S.LAND || this.state === S.GETUP) {
-      const sy = this.state === S.LAND ? this.scaleY : 0.38 + this.getupProg * 0.62;
-      ctx.scale(1 + (1 - sy) * 0.35, sy);
+    if (this.state === S.LAND) {
+      ctx.scale(1 + (1 - this.scaleY) * 0.35, this.scaleY);
     }
 
     // stretch vertically while airborne going up
@@ -238,7 +239,9 @@ class Char {
     if (this.facing === -1) ctx.scale(-1, 1);
 
     const isWalk = this.state === S.WALK || this.state === S.SEEK;
-    const bob    = isWalk ? Math.sin(this.walkPh * 2) * 1.7 : 0;
+    const bob    = isWalk                   ? Math.sin(this.walkPh * 2) * 1.7
+                 : this.state === S.GETUP  ? Math.sin(this.wavePh) * 2.4
+                 : 0;
     ctx.translate(0, bob);
 
     ctx.strokeStyle = ACCENT;
@@ -272,9 +275,11 @@ class Char {
       ctx.beginPath(); ctx.moveTo(-bW, armY); ctx.lineTo(-bW * 0.35, armY - aL); ctx.stroke();
       ctx.beginPath(); ctx.moveTo( bW, armY); ctx.lineTo( bW * 0.35, armY - aL); ctx.stroke();
     } else if (this.state === S.BRUSH) {
-      const bAng = Math.PI * 0.28 + Math.abs(Math.sin(this.wavePh)) * 0.55;
-      ctx.beginPath(); ctx.moveTo(-bW, armY); ctx.lineTo(-bW - Math.cos(bAng) * aL, armY + Math.sin(bAng) * aL); ctx.stroke();
-      ctx.beginPath(); ctx.moveTo( bW, armY); ctx.lineTo( bW + Math.cos(bAng) * aL, armY + Math.sin(bAng) * aL); ctx.stroke();
+      // arms alternate sweeping downward along body sides — dusting off
+      const lAng2 = Math.PI * 0.72 + Math.sin(this.wavePh) * 0.38;
+      const rAng2 = Math.PI * 0.72 + Math.sin(this.wavePh + Math.PI) * 0.38;
+      ctx.beginPath(); ctx.moveTo(-bW, armY); ctx.lineTo(-bW - Math.cos(lAng2) * aL, armY + Math.sin(lAng2) * aL); ctx.stroke();
+      ctx.beginPath(); ctx.moveTo( bW, armY); ctx.lineTo( bW + Math.cos(rAng2) * aL, armY + Math.sin(rAng2) * aL); ctx.stroke();
     } else {
       ctx.beginPath(); ctx.moveTo(-bW, armY); ctx.lineTo(-bW - Math.cos(lAng) * aL, armY + Math.sin(lAng) * aL); ctx.stroke();
 
@@ -296,12 +301,15 @@ class Char {
       ctx.fillStyle = ACCENT; ctx.fill();
     }
 
-    if (this.state === S.LAND) {
+    if (this.state === S.LAND || this.state === S.GETUP) {
+      const fade = this.state === S.GETUP ? Math.max(0, this.stTick / 52) : 1;
+      ctx.globalAlpha = fade;
       ctx.fillStyle = ACCENT;
       for (let i = 0; i < 5; i++) {
         const a = (i / 5) * Math.PI * 2;
         ctx.beginPath(); ctx.arc(Math.cos(a) * s * 1.1, Math.sin(a) * s * 0.5 - s * 0.3, 2.2, 0, Math.PI * 2); ctx.fill();
       }
+      ctx.globalAlpha = 1;
     }
 
     ctx.restore();
