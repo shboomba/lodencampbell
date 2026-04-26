@@ -28,7 +28,7 @@ const bio = {
   // About me section — each string is one paragraph
   // You can use <em>italics</em> or <strong>bold</strong> inside the strings
   paragraphs: [
-    "I am currently pursuing a Master's in Computer Science at the University of Southern California, specializing in Game Development. I previously earned a Bachelor of Science in Computer Science from the University of Wisconsin-Madison, with minors in Game Design and Mathematics.",
+    "I am currently pursuing a Master's in Computer Science at the University of Southern California, specializing in Game Development. I previously earned a Bachelor of Science in Computer Science from the University of Wisconsin-Madison, with a double minor in Game Design and Mathematics.",
     "I develop gameplay systems and interactive experiences using C++, C#, and Unity, with a focus on responsive mechanics, performance, and maintainable architecture. My work includes implementing core gameplay features, prototyping new mechanics, and iterating based on playtesting and technical constraints.",
     "Across team-based projects, I have contributed from initial design through final implementation, building complete gameplay experiences. I have also led teams in fast-paced environments such as hackathons, driving technical direction, coordinating development, and delivering polished, playable builds under tight deadlines.",
     "I am interested in gameplay engineering roles where I can work closely with designers and contribute to building engaging player-facing systems.",
