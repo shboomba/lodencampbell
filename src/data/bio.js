@@ -21,8 +21,21 @@ const bio = {
 
   // School logos shown below your photo
   schools: [
-    { name: "USC",        logo: "/usc.jpg"        },
-    { name: "UW-Madison", logo: "/uw-madison.png" },
+    { name: "University of Southern California",    logo: "/usc.jpg"        },
+    { name: "University of Wisconsin-Madison",      logo: "/uw-madison.png" },
+  ],
+
+  // Short tagline shown under name in hero
+  tagline: "I build gameplay systems and interactive experiences focused on responsive mechanics, procedural generation, and maintainable architecture.",
+
+  // Short blurb shown in the About Me card on the home page
+  blurb: "I'm a Computer Science graduate student at USC with a passion for building immersive, system-driven experiences. My background in gameplay systems, AI, and interactive simulations allows me to bridge the gap between creative design and technical implementation.",
+
+  // Update these with whatever you're actively building
+  currentlyWorkingOn: [
+    { title: "The H.U.G.S. Protocol",  description: "A puzzle-platformer game with a super cute modified hamster." },
+    { title: "Phrontiers",     description: "A Roblox game where Clash Royale meets StarCraft." },
+    { title: "Portfolio Site",       description: "This React portfolio to showcase and create." },
   ],
 
   // About me section — each string is one paragraph

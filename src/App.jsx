@@ -11,9 +11,11 @@
 // ============================================================
 
 import { useState, useRef } from "react";
-import Nav           from "./components/Nav";
-import Footer        from "./components/Footer";
+import Nav                from "./components/Nav";
+import Footer             from "./components/Footer";
+import AmbientBackground  from "./components/AmbientBackground";
 import Home          from "./pages/Home";
+import About         from "./pages/About";
 import Portfolio     from "./pages/Portfolio";
 import OtherProjects from "./pages/OtherProjects";
 import PBS           from "./pages/PBSProject";
@@ -32,6 +34,7 @@ export default function App() {
   const renderPage = () => {
     switch (page) {
       case "home":      return <Home      onNavigate={navigate} />;
+      case "about":     return <About     onNavigate={navigate} />;
       case "portfolio": return <Portfolio onNavigate={navigate} />;
       case "other":     return <OtherProjects />;
       case "pbs":       return <PBS       onNavigate={navigate} />;
@@ -41,11 +44,14 @@ export default function App() {
 
   return (
     <>
+      <AmbientBackground />
       <Nav activePage={page} onNavigate={navigate} />
-      <main key={pageKey.current} className="fade-up">
-        {renderPage()}
-      </main>
-      <Footer />
+      <div style={{ marginLeft: "var(--sidebar-width)", transition: "margin-left 0.28s ease" }}>
+        <main key={pageKey.current} className="fade-up">
+          {renderPage()}
+        </main>
+        <Footer />
+      </div>
     </>
   );
 }

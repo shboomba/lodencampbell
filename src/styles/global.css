@@ -8,22 +8,23 @@
   --color-accent:   #3dd68c;
   --color-accent2:  #ff6b35;
   --color-text:     #e0ede6;
-  --color-muted:    #5a8070;
+  --color-muted:    #8ab5a3;
   --color-nav-bg:   rgba(21, 31, 26, 0.95);
 
   --font-heading: 'Orbitron', sans-serif;
   --font-body:    'Outfit', sans-serif;
   --font-mono:    'Fira Code', monospace;
 
-  --max-width:  1200px;
-  --nav-height: 64px;
-  --radius:     6px;
-  --radius-lg:  10px;
+  --max-width:     1600px;
+  --nav-height:    0px;
+  --sidebar-width: 220px;
+  --radius:        6px;
+  --radius-lg:     10px;
 
-  --space-sm: 16px;
-  --space-md: 32px;
-  --space-lg: 60px;
-  --space-xl: 96px;
+  --space-sm: 12px;
+  --space-md: 28px;
+  --space-lg: 32px;
+  --space-xl: 72px;
 }
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -53,7 +54,7 @@ body::before {
 .section-wrap {
   max-width: var(--max-width);
   margin:    0 auto;
-  padding:   var(--space-xl) var(--space-lg);
+  padding:   var(--space-xl) 56px var(--space-xl) var(--space-lg);
 }
 @media (max-width: 900px) { .section-wrap { padding: var(--space-lg) var(--space-md); } }
 @media (max-width: 540px) { .section-wrap { padding: var(--space-md) var(--space-sm); } }
@@ -149,6 +150,25 @@ body::before {
 @keyframes fadeUp {
   from { opacity: 0; transform: translateY(16px); }
   to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50%       { opacity: 0.5; transform: scale(0.85); }
+}
+
+.pulse-dot {
+  display:       inline-block;
+  width:         7px;
+  height:        7px;
+  border-radius: 50%;
+  background:    var(--color-accent);
+  animation:     pulse 1.8s ease-in-out infinite;
+  flex-shrink:   0;
+}
+
+@media (max-width: 768px) {
+  :root { --sidebar-width: 0px; }
 }
 
 .fade-up { animation: fadeUp 0.45s ease both; }

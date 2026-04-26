@@ -10,9 +10,9 @@
 // ============================================================
 
 const nav = [
-  { label: "Home",           page: "home" },
-  { label: "Portfolio",      page: "portfolio" },
-  { label: "Other Projects", page: "other" },
+  { label: "Home",           page: "home",      icon: "home" },
+  { label: "Portfolio",      page: "portfolio", icon: "grid" },
+  { label: "Other Projects", page: "other",     icon: "layers" },
 ];
 
 export default nav;
