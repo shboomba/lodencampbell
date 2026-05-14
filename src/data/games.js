@@ -1,5 +1,13 @@
 const games = [
   {
+    title:       "The H.U.G.S. Protocol",
+    image:       "/games/the-hugs-protocol.png",
+    url:         "https://shboomba.itch.io/the-hugs-protocol",
+    platform:    "itch.io",
+    tags:        ["Unity", "C#", "Puzzle", "3D", "Platformer"],
+    description: "Play as a hamster navigating a colorful science lab, using physics-based abilities inspired by GameCube-era mascot games.",
+  },
+  {
     title:       "Against the Grain",
     image:       "/games/against-the-grain.png",
     url:         "https://loden-campbell.itch.io/against-the-grain",

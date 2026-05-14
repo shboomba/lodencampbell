@@ -11,6 +11,7 @@
 
 const nav = [
   { label: "Home",           page: "home",      icon: "home" },
+  { label: "About",          page: "about",     icon: "user" },
   { label: "Portfolio",      page: "portfolio", icon: "grid" },
   { label: "Other Projects", page: "other",     icon: "layers" },
 ];

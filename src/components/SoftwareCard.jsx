@@ -15,18 +15,37 @@ export default function SoftwareCard({ title, image, type, url, page, descriptio
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
       style={{
-        position:     "relative",
-        background:   hovered ? "var(--color-surface2)" : "var(--color-surface)",
-        border:       `1px solid ${hovered ? "rgba(61,214,140,0.35)" : "var(--color-border)"}`,
+        position:   "relative",
+        display:    "flex",
+        flexDirection: "row",
+        background: hovered ? "var(--color-surface2)" : "var(--color-surface)",
+        border:     `1px solid ${hovered ? "rgba(61,214,140,0.35)" : "var(--color-border)"}`,
         borderRadius: "var(--radius-lg)",
-        cursor:       "pointer",
-        transition:   "background 0.2s, border-color 0.2s",
-        overflow:     "hidden",
+        cursor:     "pointer",
+        transition: "background 0.2s, border-color 0.2s",
+        overflow:   "hidden",
+        minHeight:  160,
       }}
     >
-      {/* Cover image */}
+      {/* Left accent bar */}
+      <div style={{
+        position:   "absolute",
+        left: 0, top: 0, bottom: 0,
+        width:      3,
+        background: "var(--color-accent)",
+        opacity:    hovered ? 1 : 0.4,
+        transition: "opacity 0.2s",
+      }} />
+
+      {/* Image */}
       {image && (
-        <div style={{ overflow: "hidden", height: 180 }}>
+        <div style={{
+          flexShrink:  0,
+          width:       220,
+          overflow:    "hidden",
+          background:  "var(--color-surface2)",
+          borderRight: "1px solid var(--color-border)",
+        }}>
           <img
             src={image}
             alt={title}
@@ -36,33 +55,18 @@ export default function SoftwareCard({ title, image, type, url, page, descriptio
               objectFit:      "contain",
               objectPosition: "center",
               display:        "block",
-              background:     "var(--color-surface2)",
               transition:     "transform 0.35s ease",
-              transform:      hovered ? "scale(1.03)" : "scale(1)",
+              transform:      hovered ? "scale(1.04)" : "scale(1)",
             }}
           />
         </div>
       )}
 
-      {/* Left accent bar */}
-      <div style={{
-        position:     "absolute",
-        left: 0,
-        top:    0,
-        bottom: 0,
-        height: "100%",
-        width:        3,
-        background:   "var(--color-accent)",
-        opacity:      hovered ? 1 : 0.4,
-        transition:   "opacity 0.2s",
-        borderRadius: "var(--radius-lg) 0 0 var(--radius-lg)",
-      }} />
-
       {/* Content */}
-      <div style={{ padding: "28px 36px" }}>
+      <div style={{ padding: "28px 32px", display: "flex", flexDirection: "column", justifyContent: "center", flex: 1 }}>
 
         {/* Top row: type badge + CTA */}
-        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 16 }}>
+        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 14 }}>
           {type && (
             <span style={{
               fontFamily:    "var(--font-mono)",
@@ -99,14 +103,14 @@ export default function SoftwareCard({ title, image, type, url, page, descriptio
 
         {/* Title */}
         <h3 style={{
-          fontFamily:   "var(--font-body)",
-          fontSize:     "clamp(18px, 2.5vw, 22px)",
-          fontWeight:   700,
-          color:        hovered ? "var(--color-accent)" : "var(--color-text)",
-          marginBottom: 10,
-          transition:   "color 0.2s",
+          fontFamily:    "var(--font-body)",
+          fontSize:      "clamp(18px, 2.5vw, 22px)",
+          fontWeight:    700,
+          color:         hovered ? "var(--color-accent)" : "var(--color-text)",
+          marginBottom:  10,
+          transition:    "color 0.2s",
           letterSpacing: "-0.3px",
-          lineHeight:   1.2,
+          lineHeight:    1.2,
         }}>
           {title}
         </h3>
