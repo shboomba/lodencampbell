@@ -34,7 +34,7 @@ export default function Portfolio({ onNavigate }) {
           }}>
             {games.map((game, i) => (
               <div key={game.title} className="fade-up" style={{ animationDelay: `${0.08 * i}s` }}>
-                <GameCard {...game} />
+                <GameCard {...game} onNavigate={onNavigate} />
               </div>
             ))}
           </div>

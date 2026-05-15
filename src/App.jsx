@@ -19,6 +19,7 @@ import About         from "./pages/About";
 import Portfolio     from "./pages/Portfolio";
 import OtherProjects from "./pages/OtherProjects";
 import PBS           from "./pages/PBSProject";
+import GamePage      from "./pages/GamePage";
 
 export default function App() {
   const [page, setPage] = useState("home");
@@ -38,7 +39,9 @@ export default function App() {
       case "portfolio": return <Portfolio onNavigate={navigate} />;
       case "other":     return <OtherProjects />;
       case "pbs":       return <PBS       onNavigate={navigate} />;
-      default:          return <Home      onNavigate={navigate} />;
+      default:
+        if (page.startsWith("game-")) return <GamePage id={page} onNavigate={navigate} />;
+        return <Home onNavigate={navigate} />;
     }
   };
 

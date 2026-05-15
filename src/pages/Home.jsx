@@ -13,8 +13,8 @@ const skillGroups = [
 // First 2 games + PBS as featured
 const featured = [
   { ...software[0], linkType: "internal" },
-  { ...games[0],    linkType: "external" },
-  { ...games[1],    linkType: "external" },
+  { ...games[0],    linkType: "internal" },
+  { ...games[1],    linkType: "internal" },
 ];
 
 function FeaturedCard({ title, image, type, platform, description, tags, url, page, linkType, onNavigate }) {
