@@ -25,9 +25,8 @@ export default function GamePage({ id, onNavigate }) {
             onClick={() => onNavigate("portfolio")}
             style={{
               display: "flex", alignItems: "center", gap: 8,
-              fontFamily: "var(--font-mono)", fontSize: 11,
-              color: "var(--color-muted)", letterSpacing: "1.5px",
-              textTransform: "uppercase", background: "none",
+              fontFamily: "var(--font-body)", fontSize: 13,
+              color: "var(--color-muted)", background: "none",
               border: "none", cursor: "pointer", marginBottom: 40,
               transition: "color 0.2s", padding: 0,
             }}
@@ -39,8 +38,8 @@ export default function GamePage({ id, onNavigate }) {
 
           <div className="fade-up" style={{ marginBottom: 16 }}>
             <span style={{
-              fontFamily: "var(--font-mono)", fontSize: 11,
-              color: "var(--color-accent)", letterSpacing: "3px", textTransform: "uppercase",
+              fontFamily: "var(--font-body)", fontWeight: 600, fontSize: 11,
+              color: "var(--color-accent)", letterSpacing: "1.5px", textTransform: "uppercase",
             }}>
               {game.subtitle}
             </span>
@@ -48,8 +47,8 @@ export default function GamePage({ id, onNavigate }) {
 
           <h1 className="fade-up delay-1" style={{
             fontFamily: "var(--font-heading)", fontSize: "clamp(28px, 4vw, 52px)",
-            fontWeight: 900, color: "var(--color-text)", lineHeight: 1.1,
-            letterSpacing: "-1px", marginBottom: 20, maxWidth: 700,
+            fontWeight: 700, color: "var(--color-text)", lineHeight: 1.1,
+            letterSpacing: "-0.5px", marginBottom: 20, maxWidth: 700,
           }}>
             {game.title}
           </h1>
@@ -57,13 +56,7 @@ export default function GamePage({ id, onNavigate }) {
           {/* Tags */}
           <div className="fade-up delay-2" style={{ display: "flex", flexWrap: "wrap", gap: 8, marginBottom: 36 }}>
             {game.tags.map((t) => (
-              <span key={t} style={{
-                fontFamily: "var(--font-mono)", fontSize: 11,
-                letterSpacing: "1px", textTransform: "uppercase",
-                padding: "6px 14px", borderRadius: 99,
-                border: "1px solid var(--color-border)",
-                color: "var(--color-accent)", background: "rgba(61,214,140,0.06)",
-              }}>
+              <span key={t} className="tag">
                 {t}
               </span>
             ))}
@@ -109,12 +102,11 @@ export default function GamePage({ id, onNavigate }) {
               rel="noreferrer"
               style={{
                 display: "inline-flex", alignItems: "center", gap: 10,
-                fontFamily: "var(--font-mono)", fontSize: 13,
-                letterSpacing: "1.5px", textTransform: "uppercase",
+                fontFamily: "var(--font-body)", fontSize: 14, fontWeight: 600,
                 color: "var(--color-bg)",
                 background: "var(--color-accent)",
-                padding: "13px 32px",
-                borderRadius: 99,
+                padding: "12px 28px",
+                borderRadius: "var(--radius)",
                 textDecoration: "none",
                 transition: "opacity 0.2s",
               }}
@@ -146,8 +138,8 @@ export default function GamePage({ id, onNavigate }) {
               borderRight: i < stats.length - 1 ? "1px solid var(--color-border)" : "none",
             }}>
               <div style={{
-                fontFamily: "var(--font-mono)", fontSize: 10,
-                letterSpacing: "2px", textTransform: "uppercase",
+                fontFamily: "var(--font-body)", fontWeight: 600, fontSize: 10,
+                letterSpacing: "1px", textTransform: "uppercase",
                 color: "var(--color-muted)", marginBottom: 10,
               }}>
                 {s.label}

@@ -69,23 +69,20 @@ export default function SoftwareCard({ title, image, type, url, page, descriptio
         <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 14 }}>
           {type && (
             <span style={{
-              fontFamily:    "var(--font-mono)",
-              fontSize:      10,
-              letterSpacing: "2px",
+              fontFamily:    "var(--font-body)",
+              fontSize:      11,
+              fontWeight:    600,
+              letterSpacing: "0.5px",
               textTransform: "uppercase",
               color:         "var(--color-accent)",
-              background:    "rgba(61,214,140,0.08)",
-              border:        "1px solid rgba(61,214,140,0.2)",
-              borderRadius:  4,
-              padding:       "3px 10px",
             }}>
               {type}
             </span>
           )}
 
           <span style={{
-            fontFamily: "var(--font-mono)",
-            fontSize:   12,
+            fontFamily: "var(--font-body)",
+            fontSize:   13,
             color:      hovered ? "var(--color-accent)" : "var(--color-muted)",
             transition: "color 0.2s",
             display:    "flex",

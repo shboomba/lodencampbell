@@ -92,12 +92,12 @@ function InfoCard({ label, children }) {
       }}>
         <span style={{ width: 3, height: 13, background: "var(--color-accent)", borderRadius: 2, display: "block", flexShrink: 0 }} />
         <span style={{
-          fontFamily:    "var(--font-mono)",
-          fontSize:      13,
-          letterSpacing: "2px",
+          fontFamily:    "var(--font-body)",
+          fontSize:      12,
+          letterSpacing: "1px",
           textTransform: "uppercase",
           color:         "var(--color-text)",
-          fontWeight:    700,
+          fontWeight:    600,
         }}>{label}</span>
       </div>
       {children}
@@ -127,10 +127,11 @@ export default function Home({ onNavigate }) {
           <div style={{ display: "flex", flexDirection: "column", gap: 22, position: "relative", zIndex: 5 }}>
 
             <div className="fade-up delay-1" style={{
-              fontFamily:    "var(--font-mono)",
+              fontFamily:    "var(--font-body)",
               fontSize:      11,
+              fontWeight:    600,
               color:         "var(--color-accent)",
-              letterSpacing: "3px",
+              letterSpacing: "1.5px",
               textTransform: "uppercase",
               display:       "flex",
               alignItems:    "center",
@@ -141,7 +142,7 @@ export default function Home({ onNavigate }) {
             </div>
 
             <h1 className="fade-up delay-2" style={{
-              fontFamily:    "var(--font-heading)",
+              fontFamily:    "'Orbitron', sans-serif",
               fontSize:      "clamp(38px, 5.5vw, 72px)",
               fontWeight:    900,
               lineHeight:    0.92,
@@ -173,9 +174,8 @@ export default function Home({ onNavigate }) {
               alignItems:    "center",
               gap:           10,
               flexWrap:      "wrap",
-              fontFamily:    "var(--font-mono)",
-              fontSize:      12,
-              letterSpacing: "0.5px",
+              fontFamily:    "var(--font-body)",
+              fontSize:      13,
             }}>
               <span style={{ color: "var(--color-text)", fontWeight: 500 }}>MS Computer Science · USC</span>
               <span style={{ color: "var(--color-border)", fontSize: 16, lineHeight: 1 }}>|</span>
@@ -187,10 +187,9 @@ export default function Home({ onNavigate }) {
               display:       "flex",
               alignItems:    "center",
               gap:           8,
-              fontFamily:    "var(--font-mono)",
-              fontSize:      11,
+              fontFamily:    "var(--font-body)",
+              fontSize:      13,
               color:         "var(--color-muted)",
-              letterSpacing: "0.3px",
             }}>
               <span className="pulse-dot" />
               Available for internships &amp; full-time opportunities
@@ -202,17 +201,16 @@ export default function Home({ onNavigate }) {
                 ref={viewWorkRef}
                 onClick={() => onNavigate("portfolio")}
                 style={{
-                  fontFamily:    "var(--font-mono)",
-                  fontSize:      11,
-                  letterSpacing: "2px",
-                  textTransform: "uppercase",
+                  fontFamily:    "var(--font-body)",
+                  fontSize:      14,
+                  letterSpacing: "0.3px",
                   padding:       "11px 26px",
                   borderRadius:  "var(--radius)",
                   background:    "var(--color-accent)",
                   color:         "#0a1a10",
                   border:        "none",
                   cursor:        "pointer",
-                  fontWeight:    700,
+                  fontWeight:    600,
                   transition:  "opacity 0.15s",
                   display:     "flex",
                   alignItems:  "center",
@@ -231,17 +229,16 @@ export default function Home({ onNavigate }) {
                 target="_blank"
                 rel="noreferrer"
                 style={{
-                  fontFamily:     "var(--font-mono)",
-                  fontSize:       11,
-                  letterSpacing:  "2px",
-                  textTransform:  "uppercase",
+                  fontFamily:     "var(--font-body)",
+                  fontSize:       14,
+                  letterSpacing:  "0.3px",
                   padding:        "11px 26px",
                   borderRadius:   "var(--radius)",
                   background:     "var(--color-surface2)",
                   color:          "var(--color-text)",
                   border:         "1px solid rgba(61,214,140,0.35)",
                   cursor:         "pointer",
-                  fontWeight:     700,
+                  fontWeight:     600,
                   textDecoration: "none",
                   transition:  "background 0.15s, border-color 0.15s",
                   display:     "inline-flex",
@@ -273,27 +270,28 @@ export default function Home({ onNavigate }) {
             <FeaturedCard key={i} {...item} onNavigate={onNavigate} />
           ))}
         </div>
-        <button
-          onClick={() => onNavigate("portfolio")}
-          style={{
-            marginTop:     16,
-            background:    "none",
-            border:        "none",
-            color:         "var(--color-accent)",
-            fontFamily:    "var(--font-mono)",
-            fontSize:      12,
-            letterSpacing: "1px",
-            cursor:        "pointer",
-            padding:       0,
-            display:       "flex",
-            alignItems:    "center",
-            gap:           6,
-          }}
-          onMouseEnter={e => e.currentTarget.style.opacity = "0.75"}
-          onMouseLeave={e => e.currentTarget.style.opacity = "1"}
-        >
-          View all projects →
-        </button>
+        <div style={{ display: "flex", justifyContent: "flex-end", marginTop: 14 }}>
+          <button
+            onClick={() => onNavigate("portfolio")}
+            style={{
+              background:    "none",
+              border:        "none",
+              color:         "var(--color-accent)",
+              fontFamily:    "var(--font-mono)",
+              fontSize:      14,
+              letterSpacing: "1px",
+              cursor:        "pointer",
+              padding:       0,
+              display:       "flex",
+              alignItems:    "center",
+              gap:           6,
+            }}
+            onMouseEnter={e => e.currentTarget.style.opacity = "0.75"}
+            onMouseLeave={e => e.currentTarget.style.opacity = "1"}
+          >
+            View all projects →
+          </button>
+        </div>
       </div>
 
       <hr className="divider" />
@@ -338,9 +336,10 @@ export default function Home({ onNavigate }) {
               {skillGroups.map(group => (
                 <div key={group.label}>
                   <div style={{
-                    fontFamily:    "var(--font-mono)",
+                    fontFamily:    "var(--font-body)",
                     fontSize:      11,
-                    letterSpacing: "1.5px",
+                    fontWeight:    600,
+                    letterSpacing: "1px",
                     textTransform: "uppercase",
                     color:         "var(--color-accent)",
                     marginBottom:  8,

@@ -78,9 +78,8 @@ export default function PBS({ onNavigate }) {
           <button onClick={() => onNavigate("portfolio")}
             style={{
               display: "flex", alignItems: "center", gap: 8,
-              fontFamily: "var(--font-mono)", fontSize: 11,
-              color: "var(--color-muted)", letterSpacing: "1.5px",
-              textTransform: "uppercase", background: "none",
+              fontFamily: "var(--font-body)", fontSize: 13,
+              color: "var(--color-muted)", background: "none",
               border: "none", cursor: "pointer", marginBottom: 40,
               transition: "color 0.2s", padding: 0,
             }}
@@ -94,15 +93,15 @@ export default function PBS({ onNavigate }) {
             <img src="/pbs.png" alt="PBS Wisconsin"
               style={{ height: 36, width: "auto", objectFit: "contain", filter: "brightness(0) invert(1)", opacity: 0.85 }}
             />
-            <span style={{ fontFamily: "var(--font-mono)", fontSize: 11, color: "var(--color-accent)", letterSpacing: "3px", textTransform: "uppercase" }}>
+            <span style={{ fontFamily: "var(--font-body)", fontWeight: 600, fontSize: 11, color: "var(--color-accent)", letterSpacing: "1.5px", textTransform: "uppercase" }}>
               Case Study
             </span>
           </div>
 
           <h1 className="fade-up delay-1" style={{
             fontFamily: "var(--font-heading)", fontSize: "clamp(28px, 4vw, 52px)",
-            fontWeight: 900, color: "var(--color-text)", lineHeight: 1.1,
-            letterSpacing: "-1px", marginBottom: 20, maxWidth: 700,
+            fontWeight: 700, color: "var(--color-text)", lineHeight: 1.1,
+            letterSpacing: "-0.5px", marginBottom: 20, maxWidth: 700,
           }}>
             PBS Wisconsin<br />
             <span style={{ color: "var(--color-accent)" }}>Recommendation Engine</span>
@@ -120,15 +119,7 @@ export default function PBS({ onNavigate }) {
           {/* Tech stack pills */}
           <div className="fade-up delay-3" style={{ display: "flex", flexWrap: "wrap", gap: 8 }}>
             {stack.map((s) => (
-              <span key={s} style={{
-                fontFamily: "var(--font-mono)", fontSize: 11,
-                letterSpacing: "1px", textTransform: "uppercase",
-                padding: "6px 14px", borderRadius: 99,
-                border: "1px solid var(--color-border)",
-                color: "var(--color-accent)", background: "rgba(61,214,140,0.06)",
-              }}>
-                {s}
-              </span>
+              <span key={s} className="tag">{s}</span>
             ))}
           </div>
         </div>
@@ -159,14 +150,14 @@ export default function PBS({ onNavigate }) {
                 borderTop: i > 0 ? "none" : "1px solid var(--color-border)",
               }}>
                 <span style={{
-                  fontFamily: "var(--font-heading)", fontSize: 11, fontWeight: 900,
-                  color: "var(--color-accent)", letterSpacing: "2px",
-                  minWidth: 28, paddingTop: 3,
+                  fontFamily: "var(--font-mono)", fontSize: 11, fontWeight: 500,
+                  color: "var(--color-accent)", letterSpacing: "1px",
+                  minWidth: 28, paddingTop: 3, opacity: 0.7,
                 }}>
                   {item.step}
                 </span>
                 <div>
-                  <div style={{ fontFamily: "var(--font-heading)", fontSize: 13, fontWeight: 700, color: "var(--color-text)", letterSpacing: "1px", marginBottom: 6 }}>
+                  <div style={{ fontFamily: "var(--font-body)", fontSize: 14, fontWeight: 600, color: "var(--color-text)", marginBottom: 6 }}>
                     {item.label}
                   </div>
                   <div style={{ fontFamily: "var(--font-body)", fontSize: 14, color: "var(--color-muted)", lineHeight: 1.6 }}>
@@ -202,8 +193,8 @@ export default function PBS({ onNavigate }) {
               <div style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 20 }}>
                 <span style={{ fontSize: 20, color: c.color }}>{c.icon}</span>
                 <span style={{
-                  fontFamily: "var(--font-heading)", fontSize: 13, fontWeight: 700,
-                  color: c.color, letterSpacing: "1.5px", textTransform: "uppercase",
+                  fontFamily: "var(--font-body)", fontSize: 13, fontWeight: 700,
+                  color: c.color, letterSpacing: "0.5px", textTransform: "uppercase",
                 }}>
                   {c.area}
                 </span>
@@ -243,7 +234,7 @@ export default function PBS({ onNavigate }) {
                 boxShadow: "0 0 8px rgba(61,214,140,0.5)",
               }} />
               <div>
-                <div style={{ fontFamily: "var(--font-mono)", fontSize: 12, fontWeight: 600, color: "var(--color-text)", letterSpacing: "0.5px", marginBottom: 4 }}>
+                <div style={{ fontFamily: "var(--font-body)", fontSize: 13, fontWeight: 600, color: "var(--color-text)", marginBottom: 4 }}>
                   {e.label}
                 </div>
                 <div style={{ fontFamily: "var(--font-body)", fontSize: 13, color: "var(--color-muted)", lineHeight: 1.6 }}>

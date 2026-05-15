@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Outfit:wght@300;400;500;600;700&family=Fira+Code:wght@400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Space+Grotesk:wght@400;500;600;700&family=Outfit:wght@300;400;500;600;700&family=Fira+Code:wght@400;500&display=swap');
 
 :root {
   --color-bg:       #151f1a;
@@ -11,7 +11,7 @@
   --color-muted:    #8ab5a3;
   --color-nav-bg:   rgba(21, 31, 26, 0.95);
 
-  --font-heading: 'Orbitron', sans-serif;
+  --font-heading: 'Space Grotesk', sans-serif;
   --font-body:    'Outfit', sans-serif;
   --font-mono:    'Fira Code', monospace;
 
@@ -64,10 +64,11 @@ body::before {
   display:        flex;
   align-items:    center;
   gap:            12px;
-  font-family:    var(--font-mono);
+  font-family:    var(--font-body);
   font-size:      11px;
+  font-weight:    600;
   color:          var(--color-accent);
-  letter-spacing: 3px;
+  letter-spacing: 1.5px;
   text-transform: uppercase;
   margin-bottom:  var(--space-sm);
 }
@@ -99,14 +100,13 @@ body::before {
 
 /* ── Tag pill ──────────────────────────────────────────────── */
 .tag {
-  font-family:    var(--font-mono);
-  font-size:      10px;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  padding:        3px 9px;
-  border-radius:  4px;
-  border:         1px solid var(--color-border);
-  color:          var(--color-muted);
+  font-family:  var(--font-body);
+  font-size:    13px;
+  font-weight:  500;
+  padding:      4px 10px;
+  border-radius: 3px;
+  background:   rgba(138, 181, 163, 0.08);
+  color:        var(--color-muted);
 }
 
 /* ── Skill row layout ──────────────────────────────────────── */
@@ -120,9 +120,10 @@ body::before {
 }
 .skill-row:first-child { border-top: 1px solid var(--color-border); }
 .skill-row-label {
-  font-family:    var(--font-mono);
-  font-size:      10px;
-  letter-spacing: 2px;
+  font-family:    var(--font-body);
+  font-size:      11px;
+  font-weight:    600;
+  letter-spacing: 1px;
   text-transform: uppercase;
   color:          var(--color-accent);
   padding-top:    3px;

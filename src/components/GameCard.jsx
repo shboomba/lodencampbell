@@ -42,9 +42,10 @@ export default function GameCard({ title, image, url, page, platform, tags, desc
       {/* Card body */}
       <div style={{ padding: "16px 18px", display: "flex", flexDirection: "column", gap: 8, flex: 1 }}>
         <span style={{
-          fontFamily:    "var(--font-mono)",
-          fontSize:      10,
-          letterSpacing: "2px",
+          fontFamily:    "var(--font-body)",
+          fontSize:      11,
+          fontWeight:    600,
+          letterSpacing: "0.5px",
           textTransform: "uppercase",
           color:         "var(--color-accent)",
         }}>
