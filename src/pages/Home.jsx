@@ -5,12 +5,11 @@ import games    from "../data/games";
 import CharacterScene from "../components/CharacterScene";
 
 const skillGroups = [
-  { label: "Languages", pills: ["Python", "Java", "C#", "C++", "JavaScript"] },
-  { label: "Tools",     pills: ["React", "Flask", "Unity", "Maya Autodesk", "Git"] },
-  { label: "Strengths", pills: ["Project Leadership", "Game Design", "Team Collaboration", "AI / ML"] },
+  { label: "Languages", pills: ["C#", "C++", "Python", "Java", "JavaScript/HTML/CSS"] },
+  { label: "Tools",     pills: ["Unity", "Git", "Unreal Engine", "React", "Flask", "Maya Autodesk", "Blender"] },
+  { label: "Strengths", pills: ["Game Design", "Systems Design", "AI / ML", "Project Leadership", "Team Collaboration"] },
 ];
 
-// First 2 games + PBS as featured
 const featured = [
   { ...software[0], linkType: "internal" },
   { ...games[0],    linkType: "internal" },
