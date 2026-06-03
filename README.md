@@ -5,7 +5,7 @@ https://lodencampbell.vercel.app/
 
 ---
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 lodencampbell/
@@ -60,7 +60,7 @@ From `src/styles/global.css`:
 
 ---
 
-## 🛠 Tech Stack
+## Tech Stack
 
 | Technology   | Purpose                                      |
 |--------------|----------------------------------------------|
