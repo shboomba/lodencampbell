@@ -11,6 +11,11 @@ const gameDetails = [
     role:        "Co-Developer",
     overview:    "A 3D puzzle-platformer where you play as a hamster navigating a colorful science laboratory. Inspired by Portal's puzzle design and the warmth of peak GameCube-era mascot games, the game centers on discovering floppy disc crackers that unlock three physics-based abilities: Sonar Ball for echo-based detection, Tungsten Ball for heavy traversal, and Sponge Ball for water manipulation and delicate platforming.",
     tags:        ["Unity", "C#", "3D", "Puzzle", "Platformer"],
+    contributions: [
+      "Implemented the three physics-based ball abilities (Sonar, Tungsten, Sponge) that drive every puzzle and traversal mechanic",
+      "Co-designed levels and puzzles around ability interactions, iterating through playtests",
+      "Shared programming, design, art, and production across a two-person core team, from concept to itch.io release",
+    ],
     team: [
       { name: "Loden Campbell",  role: "Programming, Design, Art, Production" },
       { name: "Thomas Shalosky", role: "Programming, Design, Art, Production" },
@@ -32,6 +37,11 @@ const gameDetails = [
     role:        "Lead Programmer",
     overview:    "A 2D platformer where you play as a wizard with grain-based abilities. Use cornstalk and popcorn powers to navigate obstacles and stop a blight terrorizing the crops. The mechanics emphasize movement-based puzzle-solving tightly tied to the game's agricultural theme.",
     tags:        ["Unity", "C#", "2D", "Platformer"],
+    contributions: [
+      "Implemented 4+ character abilities with animations and gameplay logic",
+      "Developed a trajectory system with custom materials for real-time visual feedback",
+      "Built a collectibles and NPC system with 15+ interactive characters and branching dialogue",
+    ],
     team: [
       { name: "Loden Campbell", role: "Programming, Design, Art" },
     ],

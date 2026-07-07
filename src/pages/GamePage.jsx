@@ -5,10 +5,10 @@ export default function GamePage({ id, onNavigate }) {
   if (!game) return null;
 
   const stats = [
-    { label: "Team Size", value: game.teamSize === 1 ? "Solo" : `${game.teamSize} People` },
+    { label: "Team Size", value: game.teamSize == null ? null : (game.teamSize === 1 ? "Solo" : `${game.teamSize} People`) },
     { label: "My Role",   value: game.role },
     { label: "Engine",    value: game.engine },
-  ];
+  ].filter((s) => s.value);
 
   return (
     <div style={{ paddingTop: "var(--nav-height)" }}>
@@ -86,36 +86,38 @@ export default function GamePage({ id, onNavigate }) {
           </div>
 
           {/* Play CTA — directly under the cover image */}
-          <div className="fade-up delay-4" style={{
-            display: "flex", flexDirection: "column", alignItems: "center", gap: 12,
-            textAlign: "center",
-          }}>
-            <p style={{
-              fontFamily: "var(--font-body)", fontSize: 14,
-              color: "var(--color-muted)", margin: 0,
+          {game.itchUrl && (
+            <div className="fade-up delay-4" style={{
+              display: "flex", flexDirection: "column", alignItems: "center", gap: 12,
+              textAlign: "center",
             }}>
-              Available to play for free on itch.io
-            </p>
-            <a
-              href={game.itchUrl}
-              target="_blank"
-              rel="noreferrer"
-              style={{
-                display: "inline-flex", alignItems: "center", gap: 10,
-                fontFamily: "var(--font-body)", fontSize: 14, fontWeight: 600,
-                color: "var(--color-bg)",
-                background: "var(--color-accent)",
-                padding: "12px 28px",
-                borderRadius: "var(--radius)",
-                textDecoration: "none",
-                transition: "opacity 0.2s",
-              }}
-              onMouseEnter={(e) => (e.currentTarget.style.opacity = "0.85")}
-              onMouseLeave={(e) => (e.currentTarget.style.opacity = "1")}
-            >
-              Play on itch.io →
-            </a>
-          </div>
+              <p style={{
+                fontFamily: "var(--font-body)", fontSize: 14,
+                color: "var(--color-muted)", margin: 0,
+              }}>
+                Available to play for free on itch.io
+              </p>
+              <a
+                href={game.itchUrl}
+                target="_blank"
+                rel="noreferrer"
+                style={{
+                  display: "inline-flex", alignItems: "center", gap: 10,
+                  fontFamily: "var(--font-body)", fontSize: 14, fontWeight: 600,
+                  color: "var(--color-bg)",
+                  background: "var(--color-accent)",
+                  padding: "12px 28px",
+                  borderRadius: "var(--radius)",
+                  textDecoration: "none",
+                  transition: "opacity 0.2s",
+                }}
+                onMouseEnter={(e) => (e.currentTarget.style.opacity = "0.85")}
+                onMouseLeave={(e) => (e.currentTarget.style.opacity = "1")}
+              >
+                Play on itch.io →
+              </a>
+            </div>
+          )}
         </div>
       </div>
 
@@ -125,7 +127,7 @@ export default function GamePage({ id, onNavigate }) {
         {/* Stats strip */}
         <div className="fade-up game-stats" style={{
           display: "grid",
-          gridTemplateColumns: "repeat(3, 1fr)",
+          gridTemplateColumns: `repeat(${stats.length}, 1fr)`,
           marginBottom: 80,
           border: "1px solid var(--color-border)",
           borderRadius: "var(--radius)",
@@ -164,6 +166,82 @@ export default function GamePage({ id, onNavigate }) {
         }}>
           {game.overview}
         </p>
+
+        {/* Contributions */}
+        {game.contributions?.length > 0 && (
+          <>
+            <div className="section-label fade-up">My Role</div>
+            <h2 className="section-title fade-up delay-1">Contributions</h2>
+            <ul className="fade-up delay-2" style={{
+              listStyle: "none", display: "flex", flexDirection: "column", gap: 14,
+              maxWidth: 720, marginBottom: 80,
+            }}>
+              {game.contributions.map((item, i) => (
+                <li key={i} style={{ display: "flex", gap: 12, alignItems: "flex-start" }}>
+                  <span style={{ color: "var(--color-accent)", fontSize: 10, marginTop: 7, flexShrink: 0 }}>▸</span>
+                  <span style={{ fontFamily: "var(--font-body)", fontSize: 15, color: "var(--color-muted)", lineHeight: 1.7 }}>
+                    {item}
+                  </span>
+                </li>
+              ))}
+            </ul>
+          </>
+        )}
+
+        {/* Challenges */}
+        {game.challenges?.length > 0 && (
+          <>
+            <div className="section-label fade-up">Problems Solved</div>
+            <h2 className="section-title fade-up delay-1">Challenges</h2>
+            <div className="fade-up delay-2" style={{ display: "flex", flexDirection: "column", gap: 14, maxWidth: 720, marginBottom: 80 }}>
+              {game.challenges.map((c, i) => (
+                <div key={i} style={{
+                  background: "var(--color-surface)",
+                  border: "1px solid var(--color-border)",
+                  borderRadius: "var(--radius)",
+                  padding: "20px 24px",
+                }}>
+                  <div style={{ fontFamily: "var(--font-body)", fontSize: 15, fontWeight: 700, color: "var(--color-text)", marginBottom: 6 }}>
+                    {c.title}
+                  </div>
+                  <p style={{ fontFamily: "var(--font-body)", fontSize: 14, color: "var(--color-muted)", lineHeight: 1.7, margin: 0 }}>
+                    {c.description}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </>
+        )}
+
+        {/* Team credits */}
+        {game.team?.length > 1 && (
+          <>
+            <div className="section-label fade-up">Credits</div>
+            <h2 className="section-title fade-up delay-1">Team</h2>
+            <div className="fade-up delay-2" style={{
+              border: "1px solid var(--color-border)",
+              borderRadius: "var(--radius)",
+              overflow: "hidden",
+              maxWidth: 720, marginBottom: 80,
+            }}>
+              {game.team.map((member, i) => (
+                <div key={member.name} style={{
+                  display: "grid", gridTemplateColumns: "minmax(0, 200px) 1fr", gap: 16,
+                  alignItems: "baseline", padding: "14px 24px",
+                  background: "var(--color-surface)",
+                  borderTop: i === 0 ? "none" : "1px solid var(--color-border)",
+                }}>
+                  <span style={{ fontFamily: "var(--font-body)", fontSize: 14, fontWeight: 700, color: "var(--color-text)" }}>
+                    {member.name}
+                  </span>
+                  <span style={{ fontFamily: "var(--font-body)", fontSize: 13, color: "var(--color-muted)" }}>
+                    {member.role}
+                  </span>
+                </div>
+              ))}
+            </div>
+          </>
+        )}
 
         {/* Screenshots */}
         <div className="section-label fade-up">Media</div>

@@ -100,9 +100,9 @@ export default function SoftwareCard({ title, image, type, url, page, descriptio
 
         {/* Title */}
         <h3 style={{
-          fontFamily:    "var(--font-body)",
+          fontFamily:    "var(--font-heading)",
           fontSize:      "clamp(18px, 2.5vw, 22px)",
-          fontWeight:    700,
+          fontWeight:    600,
           color:         hovered ? "var(--color-accent)" : "var(--color-text)",
           marginBottom:  10,
           transition:    "color 0.2s",

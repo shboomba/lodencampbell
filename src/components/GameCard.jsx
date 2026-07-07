@@ -53,9 +53,9 @@ export default function GameCard({ title, image, url, page, platform, tags, desc
         </span>
 
         <div style={{
-          fontFamily: "var(--font-body)",
-          fontSize:   15,
-          fontWeight: 700,
+          fontFamily: "var(--font-heading)",
+          fontSize:   16,
+          fontWeight: 600,
           color:      hovered ? "var(--color-accent)" : "var(--color-text)",
           transition: "color 0.2s",
           lineHeight: 1.3,

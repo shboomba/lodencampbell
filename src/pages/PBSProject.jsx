@@ -31,7 +31,7 @@ export default function PBS({ onNavigate }) {
     {
       area:  "Backend",
       icon:  "⬡",
-      color: "#3db8d6",
+      color: "#6d97a8",
       items: [
         "Built a Python Flask backend bridging the ML model and the React frontend",
         "Designed consistent structured JSON output, insulating the UI from ML changes",

@@ -459,15 +459,24 @@ export default function CharacterScene({ hangRefs }) {
     window.addEventListener("touchmove",  onMove, { passive: true });
     window.addEventListener("touchend",   onUp);
 
-    let raf, frame = 0;
-    const loop = () => {
+    // Fixed 60fps timestep: rAF fires at the display's refresh rate, so the
+    // simulation is stepped by accumulated time rather than once per frame.
+    const STEP = 1000 / 60;
+    let raf, tick = 0, acc = 0, last = performance.now();
+    const loop = (now) => {
       raf = requestAnimationFrame(loop);
-      // Refresh hang points every 60 frames so CSS fade-in animations have settled
-      if (frame++ % 60 === 0) updateHP();
+      acc += Math.min(now - last, 100);
+      last = now;
       ctx.clearRect(0, 0, cv.width, cv.height);
-      for (const ch of chars.current) { ch.update(cv.width, cv.height, hpRef.current, chars.current); ch.draw(ctx); }
+      while (acc >= STEP) {
+        acc -= STEP;
+        // Refresh hang points every 60 ticks so CSS fade-in animations have settled
+        if (tick++ % 60 === 0) updateHP();
+        for (const ch of chars.current) ch.update(cv.width, cv.height, hpRef.current, chars.current);
+      }
+      for (const ch of chars.current) ch.draw(ctx);
     };
-    loop();
+    raf = requestAnimationFrame(loop);
 
     return () => {
       cancelAnimationFrame(raf);

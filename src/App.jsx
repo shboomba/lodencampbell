@@ -13,12 +13,15 @@
 import { useState, useRef } from "react";
 import Nav                from "./components/Nav";
 import Footer             from "./components/Footer";
-import AmbientBackground  from "./components/AmbientBackground";
 import Home          from "./pages/Home";
 import About         from "./pages/About";
 import Portfolio     from "./pages/Portfolio";
 import OtherProjects from "./pages/OtherProjects";
 import PBS           from "./pages/PBSProject";
+import BadgerNews    from "./pages/BadgerNews";
+import IceviteChat   from "./pages/IceviteChat";
+import SneakyMasters from "./pages/SneakyMasters";
+import EnvDistributor from "./pages/EnvDistributor";
 import GamePage      from "./pages/GamePage";
 
 export default function App() {
@@ -37,8 +40,12 @@ export default function App() {
       case "home":      return <Home      onNavigate={navigate} />;
       case "about":     return <About     onNavigate={navigate} />;
       case "portfolio": return <Portfolio onNavigate={navigate} />;
-      case "other":     return <OtherProjects />;
+      case "other":     return <OtherProjects onNavigate={navigate} />;
       case "pbs":       return <PBS       onNavigate={navigate} />;
+      case "badger":    return <BadgerNews onNavigate={navigate} />;
+      case "icevite":   return <IceviteChat   onNavigate={navigate} />;
+      case "sneakymasters": return <SneakyMasters onNavigate={navigate} />;
+      case "envdist":   return <EnvDistributor onNavigate={navigate} />;
       default:
         if (page.startsWith("game-")) return <GamePage id={page} onNavigate={navigate} />;
         return <Home onNavigate={navigate} />;
@@ -47,9 +54,8 @@ export default function App() {
 
   return (
     <>
-      <AmbientBackground />
       <Nav activePage={page} onNavigate={navigate} />
-      <div style={{ marginLeft: "var(--sidebar-width)", transition: "margin-left 0.28s ease" }}>
+      <div style={{ paddingTop: "var(--masthead-h)" }}>
         <main key={pageKey.current} className="fade-up">
           {renderPage()}
         </main>

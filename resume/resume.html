@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Loden Campbell - Resume</title>
+<style>
+  @page { size: letter; margin: 0; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { width: 8.5in; }
+  body {
+    font-family: "Segoe UI", Arial, Helvetica, sans-serif;
+    color: #1a1a1a;
+    font-size: 9pt;
+    line-height: 1.28;
+    padding: 0.36in 0.5in 0.3in;
+  }
+  .accent { color: #4f7028; }
+
+  /* Header */
+  .header { display: flex; justify-content: space-between; align-items: baseline; border-bottom: 2px solid #4f7028; padding-bottom: 6px; }
+  .name { font-family: Georgia, "Times New Roman", serif; font-size: 21pt; font-weight: 700; letter-spacing: 0.5px; }
+  .contact { font-size: 8.6pt; color: #333; text-align: right; line-height: 1.45; }
+  .contact a { color: #333; text-decoration: none; }
+
+  /* Sections */
+  h2 {
+    font-size: 9.5pt; letter-spacing: 1.6px; text-transform: uppercase;
+    color: #4f7028; margin: 7px 0 3px; padding-bottom: 2px;
+    border-bottom: 1px solid #d8d3c8;
+  }
+
+  /* Entries */
+  .entry { margin-bottom: 5px; }
+  .entry-head { display: flex; justify-content: space-between; align-items: baseline; }
+  .entry-title { font-weight: 700; font-size: 9.6pt; }
+  .entry-title .sub { font-weight: 400; color: #444; }
+  .entry-date { font-size: 8.6pt; color: #555; white-space: nowrap; padding-left: 12px; }
+  .entry-tech { font-size: 8.4pt; color: #4f7028; font-style: italic; margin-top: 0.5px; }
+  ul { margin: 2px 0 0 14px; }
+  li { margin-bottom: 1.5px; }
+
+  /* Skills */
+  .skills-row { display: flex; margin-bottom: 2px; }
+  .skills-row .label { font-weight: 700; width: 1.85in; flex-shrink: 0; }
+
+  .footer-line { margin-top: 7px; padding-top: 5px; border-top: 1px solid #d8d3c8; font-size: 8.4pt; color: #444; }
+  .footer-line strong { color: #1a1a1a; }
+</style>
+</head>
+<body>
+
+  <div class="header">
+    <div class="name">LODEN <span class="accent">CAMPBELL</span></div>
+    <div class="contact">
+      loden.campbell@gmail.com &nbsp;|&nbsp; +1 (650) 776-9361<br>
+      linkedin.com/in/loden-campbell &nbsp;|&nbsp; lodencampbell.vercel.app
+    </div>
+  </div>
+
+  <h2>Education</h2>
+
+  <div class="entry">
+    <div class="entry-head">
+      <span class="entry-title">University of Southern California <span class="sub">| Los Angeles, CA</span></span>
+      <span class="entry-date">Exp. May 2027</span>
+    </div>
+    <div>M.S. in Computer Science, specialization in Game Development &nbsp;|&nbsp; GPA: 3.8/4.0</div>
+  </div>
+
+  <div class="entry">
+    <div class="entry-head">
+      <span class="entry-title">University of Wisconsin-Madison <span class="sub">| Madison, WI</span></span>
+      <span class="entry-date">2022 - 2025</span>
+    </div>
+    <div>B.S. in Computer Science &nbsp;|&nbsp; Minors: Game Design and Mathematics &nbsp;|&nbsp; GPA: 3.5/4.0</div>
+  </div>
+
+  <h2>Technical Skills</h2>
+
+  <div class="skills-row">
+    <span class="label">Programming Languages:</span>
+    <span>Java, Python, C#, JavaScript (React, HTML, CSS), SQL, C++</span>
+  </div>
+  <div class="skills-row">
+    <span class="label">Tools &amp; Technologies:</span>
+    <span>Unity Game Engine, VS Code, Agile, AWS Personalize, Perforce, git, Maya Autodesk</span>
+  </div>
+
+  <h2>Projects</h2>
+
+  <div class="entry">
+    <div class="entry-head">
+      <span class="entry-title">Crease <span class="sub">| USC Advanced Games Project</span></span>
+      <span class="entry-date">Jan 2026 - Present</span>
+    </div>
+    <div class="entry-tech">USC Games</div>
+    <ul>
+      <li>Developing a 3D flight adventure game where folding letters into paper planes tells the story of a distant father and daughter, built with a large interdisciplinary USC Games team</li>
+    </ul>
+  </div>
+
+  <div class="entry">
+    <div class="entry-head">
+      <span class="entry-title">IceVite Team Chat <span class="sub">| Bay Area Adult Hockey League (icevite.com)</span></span>
+      <span class="entry-date">2026</span>
+    </div>
+    <div class="entry-tech">Django, HTMX, Bootstrap, Web Push</div>
+    <ul>
+      <li>Built native team chat for the league's site after captains couldn't group-message mixed iPhone/Android rosters: private channel per team with captain moderation (pin, delete, mute)</li>
+      <li>Implemented cross-platform push notifications end to end (VAPID + service workers), no third-party app</li>
+    </ul>
+  </div>
+
+  <div class="entry">
+    <div class="entry-head">
+      <span class="entry-title">Environment Distributor <span class="sub">| Snake World</span></span>
+      <span class="entry-date">Sep 2025 - Dec 2025</span>
+    </div>
+    <div class="entry-tech">Unity, C#, C++</div>
+    <ul>
+      <li>Built a procedural environment system using Perlin noise to generate heightmaps and drive foliage placement across terrain</li>
+      <li>Implemented Poisson disk sampling to distribute foliage with natural spacing, enforcing exclusion radii around the track and scene objects to prevent overlap</li>
+    </ul>
+  </div>
+
+  <div class="entry">
+    <div class="entry-head">
+      <span class="entry-title">The H.U.G.S. Protocol <span class="sub">| 3D Puzzle-Platformer, released on itch.io</span></span>
+      <span class="entry-date">2025</span>
+    </div>
+    <div class="entry-tech">Unity 6, C#</div>
+    <ul>
+      <li>Co-developed a 3D puzzle-platformer with a two-person core team, sharing programming, design, art, and production from concept through public release</li>
+      <li>Implemented three physics-based ball abilities (sonar, tungsten, sponge) that drive all puzzle and traversal design</li>
+    </ul>
+  </div>
+
+  <div class="entry">
+    <div class="entry-head">
+      <span class="entry-title">PBS Wisconsin Recommendation Engine <span class="sub">| UW-Madison Capstone</span></span>
+      <span class="entry-date">Jan 2025 - May 2025</span>
+    </div>
+    <div class="entry-tech">React, Python, Flask, Figma, Vite, AWS (Personalize, S3), REST API, SQL</div>
+    <ul>
+      <li>Collaborated with a multidisciplinary team of four and PBS to integrate a recommendation engine into their active site using Amazon Personalize</li>
+      <li>Designed high- and low-fidelity Figma prototypes influenced by results of 20+ self-conducted user interviews</li>
+      <li>Developed a responsive frontend using React and Vite to provide personalized content based on user behavior</li>
+    </ul>
+  </div>
+
+  <div class="entry">
+    <div class="entry-head">
+      <span class="entry-title">Against The Grain <span class="sub">| Metroidvania Game</span></span>
+      <span class="entry-date">Sep 2024 - Dec 2024</span>
+    </div>
+    <div class="entry-tech">Unity, C#, LDtk, Aseprite, HacknPlan</div>
+    <ul>
+      <li>Implemented 4+ character abilities with animations and gameplay logic as lead programmer on a four-person team</li>
+      <li>Developed a trajectory system with custom materials for real-time visual feedback</li>
+      <li>Built a collectibles/NPC system with 15+ interactive characters and branching dialogue</li>
+    </ul>
+  </div>
+
+  <div class="entry">
+    <div class="entry-head">
+      <span class="entry-title">AI Teeko Game Bot</span>
+      <span class="entry-date">Sep 2024 - Dec 2024</span>
+    </div>
+    <div class="entry-tech">Python</div>
+    <ul>
+      <li>Designed an AI system to improve decision-making in Teeko, achieving a 98.7% win rate against baseline opponents</li>
+    </ul>
+  </div>
+
+  <div class="entry">
+    <div class="entry-head">
+      <span class="entry-title">Badger News App</span>
+      <span class="entry-date">Sep 2024 - Nov 2024</span>
+    </div>
+    <div class="entry-tech">React/JavaScript, REST API, Postman</div>
+    <ul>
+      <li>Developed a React app fetching and summarizing 100+ articles with dynamic filtering and personalized news settings</li>
+    </ul>
+  </div>
+
+  <h2>Experience</h2>
+
+  <div class="entry">
+    <div class="entry-head">
+      <span class="entry-title">Carnegie Mellon University <span class="sub">| National High School Game Academy</span></span>
+      <span class="entry-date">May 2021 - Aug 2021</span>
+    </div>
+    <div class="entry-tech">Unity, C#, Perforce, Maya Autodesk, Audacity</div>
+    <ul>
+      <li>Led a team of five as Producer in developing an original video game, taking charge of programming and design while contributing narrative writing, 2D/3D art, and audio production</li>
+    </ul>
+  </div>
+
+  <div class="footer-line">
+    <strong>Volunteering:</strong> Viterbi STEM LEAF Day, Madison Engineering Expo, Second Harvest, AYSO
+    &nbsp;&nbsp;|&nbsp;&nbsp; <strong>Extras:</strong> USC Open Alpha Club
+  </div>
+
+</body>
+</html>

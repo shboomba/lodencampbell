@@ -13,7 +13,7 @@ const skillGroups = [
 const featured = [
   { ...software[0], linkType: "internal" },
   { ...games[0],    linkType: "internal" },
-  { ...games[1],    linkType: "internal" },
+  { ...software[1], linkType: "internal" },
 ];
 
 function FeaturedCard({ title, image, type, platform, description, tags, url, page, linkType, onNavigate }) {
@@ -53,7 +53,7 @@ function FeaturedCard({ title, image, type, platform, description, tags, url, pa
             {label}
           </span>
         )}
-        <div style={{ fontFamily: "var(--font-body)", fontSize: 14, fontWeight: 700, color: hovered ? "var(--color-accent)" : "var(--color-text)", transition: "color 0.2s", lineHeight: 1.3 }}>
+        <div style={{ fontFamily: "var(--font-heading)", fontSize: 15, fontWeight: 600, color: hovered ? "var(--color-accent)" : "var(--color-text)", transition: "color 0.2s", lineHeight: 1.3 }}>
           {title}
         </div>
         {description && (
@@ -141,11 +141,11 @@ export default function Home({ onNavigate }) {
             </div>
 
             <h1 className="fade-up delay-2" style={{
-              fontFamily:    "'Orbitron', sans-serif",
+              fontFamily:    "var(--font-heading)",
               fontSize:      "clamp(38px, 5.5vw, 72px)",
-              fontWeight:    900,
-              lineHeight:    0.92,
-              letterSpacing: "-2px",
+              fontWeight:    600,
+              lineHeight:    0.95,
+              letterSpacing: "-0.03em",
               color:         "var(--color-text)",
             }}>
               {bio.name.split(" ").map((word, i) => (
@@ -195,28 +195,19 @@ export default function Home({ onNavigate }) {
             </div>
 
             {/* CTAs */}
-            <div className="fade-up delay-4" style={{ display: "flex", gap: 12, flexWrap: "wrap", alignItems: "center" }}>
+            <div className="fade-up delay-4" style={{ display: "flex", gap: 14, flexWrap: "wrap", alignItems: "center" }}>
               <button
                 ref={viewWorkRef}
                 onClick={() => onNavigate("portfolio")}
                 style={{
-                  fontFamily:    "var(--font-body)",
-                  fontSize:      14,
-                  letterSpacing: "0.3px",
-                  padding:       "11px 26px",
-                  borderRadius:  "var(--radius)",
-                  background:    "var(--color-accent)",
-                  color:         "#0a1a10",
-                  border:        "none",
-                  cursor:        "pointer",
-                  fontWeight:    600,
-                  transition:  "opacity 0.15s",
-                  display:     "flex",
-                  alignItems:  "center",
-                  gap:         8,
-                  lineHeight:  1,
+                  fontFamily: "var(--font-body)", fontSize: 14, fontWeight: 600, letterSpacing: "0.04em",
+                  padding: "12px 28px", borderRadius: "var(--radius)",
+                  background: "var(--color-accent)", color: "var(--color-bg)",
+                  border: "none", cursor: "pointer",
+                  display: "flex", alignItems: "center", gap: 8, lineHeight: 1,
+                  transition: "opacity 0.15s",
                 }}
-                onMouseEnter={e => e.currentTarget.style.opacity = "0.85"}
+                onMouseEnter={e => e.currentTarget.style.opacity = "0.88"}
                 onMouseLeave={e => e.currentTarget.style.opacity = "1"}
               >
                 View My Work <span>→</span>
@@ -228,27 +219,16 @@ export default function Home({ onNavigate }) {
                 target="_blank"
                 rel="noreferrer"
                 style={{
-                  fontFamily:     "var(--font-body)",
-                  fontSize:       14,
-                  letterSpacing:  "0.3px",
-                  padding:        "11px 26px",
-                  borderRadius:   "var(--radius)",
-                  background:     "var(--color-surface2)",
-                  color:          "var(--color-text)",
-                  border:         "1px solid rgba(61,214,140,0.35)",
-                  cursor:         "pointer",
-                  fontWeight:     600,
-                  textDecoration: "none",
-                  transition:  "background 0.15s, border-color 0.15s",
-                  display:     "inline-flex",
-                  alignItems:  "center",
-                  gap:         8,
-                  lineHeight:  1,
+                  fontFamily: "var(--font-body)", fontSize: 14, fontWeight: 600, letterSpacing: "0.04em",
+                  color: "var(--color-text)", textDecoration: "none",
+                  display: "inline-flex", alignItems: "center", gap: 8, lineHeight: 1,
+                  padding: "12px 4px", borderBottom: "1px solid var(--color-border-strong)",
+                  transition: "border-color 0.15s, color 0.15s",
                 }}
-                onMouseEnter={e => { e.currentTarget.style.background = "rgba(61,214,140,0.1)"; e.currentTarget.style.borderColor = "rgba(61,214,140,0.6)"; }}
-                onMouseLeave={e => { e.currentTarget.style.background = "var(--color-surface2)"; e.currentTarget.style.borderColor = "rgba(61,214,140,0.35)"; }}
+                onMouseEnter={e => { e.currentTarget.style.borderColor = "var(--color-accent)"; e.currentTarget.style.color = "var(--color-accent)"; }}
+                onMouseLeave={e => { e.currentTarget.style.borderColor = "var(--color-border-strong)"; e.currentTarget.style.color = "var(--color-text)"; }}
               >
-                Resume <span>→</span>
+                Resume <span>↗</span>
               </a>
             </div>
           </div>
