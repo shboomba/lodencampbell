@@ -47,6 +47,7 @@ export default function Portfolio({ onNavigate }) {
               tags={s.tags}
               page={s.page}
               url={s.url}
+              github={s.github}
               size={i === 0 ? "lead" : "row"}
               align={i % 2 === 0 ? "left" : "right"}
               onNavigate={onNavigate}
