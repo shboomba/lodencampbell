@@ -11,8 +11,8 @@
     font-family: "Segoe UI", Arial, Helvetica, sans-serif;
     color: #1a1a1a;
     font-size: 9pt;
-    line-height: 1.28;
-    padding: 0.36in 0.5in 0.3in;
+    line-height: 1.24;
+    padding: 0.28in 0.5in 0.16in;
   }
   .accent { color: #4f7028; }
 
@@ -25,19 +25,19 @@
   /* Sections */
   h2 {
     font-size: 9.5pt; letter-spacing: 1.6px; text-transform: uppercase;
-    color: #4f7028; margin: 7px 0 3px; padding-bottom: 2px;
+    color: #4f7028; margin: 8px 0 4px; padding-bottom: 2px;
     border-bottom: 1px solid #d8d3c8;
   }
 
   /* Entries */
-  .entry { margin-bottom: 5px; }
+  .entry { margin-bottom: 7px; }
   .entry-head { display: flex; justify-content: space-between; align-items: baseline; }
   .entry-title { font-weight: 700; font-size: 9.6pt; }
   .entry-title .sub { font-weight: 400; color: #444; }
   .entry-date { font-size: 8.6pt; color: #555; white-space: nowrap; padding-left: 12px; }
   .entry-tech { font-size: 8.4pt; color: #4f7028; font-style: italic; margin-top: 0.5px; }
   ul { margin: 2px 0 0 14px; }
-  li { margin-bottom: 1.5px; }
+  li { margin-bottom: 1px; }
 
   /* Skills */
   .skills-row { display: flex; margin-bottom: 2px; }
@@ -64,7 +64,7 @@
       <span class="entry-title">University of Southern California <span class="sub">| Los Angeles, CA</span></span>
       <span class="entry-date">Exp. May 2027</span>
     </div>
-    <div>M.S. in Computer Science, specialization in Game Development &nbsp;|&nbsp; GPA: 3.8/4.0</div>
+    <div>M.S. in Computer Science, specialization in Game Development</div>
   </div>
 
   <div class="entry">
@@ -72,42 +72,56 @@
       <span class="entry-title">University of Wisconsin-Madison <span class="sub">| Madison, WI</span></span>
       <span class="entry-date">2022 - 2025</span>
     </div>
-    <div>B.S. in Computer Science &nbsp;|&nbsp; Minors: Game Design and Mathematics &nbsp;|&nbsp; GPA: 3.5/4.0</div>
+    <div>B.S. in Computer Science &nbsp;|&nbsp; Minors: Game Design and Mathematics</div>
   </div>
 
   <h2>Technical Skills</h2>
 
   <div class="skills-row">
     <span class="label">Programming Languages:</span>
-    <span>Java, Python, C#, JavaScript (React, HTML, CSS), SQL, C++</span>
+    <span>C#, Python, Lua (Luau), Java, C++, JavaScript/TypeScript (React, HTML, CSS), SQL</span>
   </div>
   <div class="skills-row">
     <span class="label">Tools &amp; Technologies:</span>
-    <span>Unity Game Engine, VS Code, Agile, AWS Personalize, Perforce, git, Maya Autodesk</span>
+    <span>Unity, Roblox Studio, Unreal Engine, AWS (Personalize, S3), Git, Perforce, React, Agile</span>
   </div>
 
   <h2>Projects</h2>
 
   <div class="entry">
     <div class="entry-head">
-      <span class="entry-title">Crease <span class="sub">| USC Advanced Games Project</span></span>
-      <span class="entry-date">Jan 2026 - Present</span>
+      <span class="entry-title">Phrontiers <span class="sub">| Roblox Game, In Development</span></span>
+      <span class="entry-date">Feb 2026 - Present</span>
     </div>
-    <div class="entry-tech">USC Games</div>
+    <div class="entry-tech">Luau, Roblox Studio, Python, Blender</div>
     <ul>
-      <li>Developing a 3D flight adventure game where folding letters into paper planes tells the story of a distant father and daughter, built with a large interdisciplinary USC Games team</li>
+      <li>Co-developing a 1v1 strategy game where players spend resources to deploy units that march on the enemy base; the server simulates the entire battle 10 times a second and re-checks every player action, so clients cannot cheat</li>
+      <li>Fixed a bug where units responding to the same game-state snapshot would incorrectly collapse into a single-file line</li>
+      <li>Built the roster of 28 units across 4 factions, the drag-to-place deploy controls, and a bot opponent for solo play</li>
     </ul>
   </div>
 
   <div class="entry">
     <div class="entry-head">
-      <span class="entry-title">IceVite Team Chat <span class="sub">| Bay Area Adult Hockey League (icevite.com)</span></span>
-      <span class="entry-date">2026</span>
+      <span class="entry-title">Crease <span class="sub">| USC Advanced Games Project</span></span>
+      <span class="entry-date">Jan 2026 - Present</span>
     </div>
-    <div class="entry-tech">Django, HTMX, Bootstrap, Web Push</div>
+    <div class="entry-tech">Unity, C#</div>
     <ul>
-      <li>Built native team chat for the league's site after captains couldn't group-message mixed iPhone/Android rosters: private channel per team with captain moderation (pin, delete, mute)</li>
-      <li>Implemented cross-platform push notifications end to end (VAPID + service workers), no third-party app</li>
+      <li>Developing a 3D flight game about a father and daughter who send letters to each other, as one of six engineers on a 40-person USC Games team</li>
+      <li>Implemented a paper plane unfolding mechanic to revert back into a readable letter, added full controller support, and wind ribbons using VFX Graph</li>
+    </ul>
+  </div>
+
+  <div class="entry">
+    <div class="entry-head">
+      <span class="entry-title">The H.U.G.S. Protocol <span class="sub">| 3D Puzzle-Platformer, released on itch.io</span></span>
+      <span class="entry-date">Jan 2026 - May 2026</span>
+    </div>
+    <div class="entry-tech">Unity 6, C#, Perforce</div>
+    <ul>
+      <li>Programmed the three ball abilities, sonar, tungsten, and sponge, that every puzzle in the game is designed around; two-person team, concept through public release on itch.io</li>
+      <li>Co-designed the levels and puzzles around how those abilities interact, reworking them between playtests</li>
     </ul>
   </div>
 
@@ -118,68 +132,20 @@
     </div>
     <div class="entry-tech">Unity, C#, C++</div>
     <ul>
-      <li>Built a procedural environment system using Perlin noise to generate heightmaps and drive foliage placement across terrain</li>
-      <li>Implemented Poisson disk sampling to distribute foliage with natural spacing, enforcing exclusion radii around the track and scene objects to prevent overlap</li>
+      <li>Engineered a system that generates terrain and scatters foliage across it, using Perlin noise to shape the landscape and Poisson disk sampling to keep plants evenly spaced</li>
+      <li>Enforced exclusion radii around the track and scene objects so nothing spawns in gameplay-critical areas; the whole environment regenerates on demand with zero manual placement</li>
     </ul>
   </div>
 
   <div class="entry">
     <div class="entry-head">
-      <span class="entry-title">The H.U.G.S. Protocol <span class="sub">| 3D Puzzle-Platformer, released on itch.io</span></span>
-      <span class="entry-date">2025</span>
+      <span class="entry-title">SneakyMasters <span class="sub">| League of Legends Leaderboard</span></span>
+      <span class="entry-date">2026</span>
     </div>
-    <div class="entry-tech">Unity 6, C#</div>
+    <div class="entry-tech">JavaScript, Vercel Serverless, Vercel KV (Redis), Riot Games API</div>
     <ul>
-      <li>Co-developed a 3D puzzle-platformer with a two-person core team, sharing programming, design, art, and production from concept through public release</li>
-      <li>Implemented three physics-based ball abilities (sonar, tungsten, sponge) that drive all puzzle and traversal design</li>
-    </ul>
-  </div>
-
-  <div class="entry">
-    <div class="entry-head">
-      <span class="entry-title">PBS Wisconsin Recommendation Engine <span class="sub">| UW-Madison Capstone</span></span>
-      <span class="entry-date">Jan 2025 - May 2025</span>
-    </div>
-    <div class="entry-tech">React, Python, Flask, Figma, Vite, AWS (Personalize, S3), REST API, SQL</div>
-    <ul>
-      <li>Collaborated with a multidisciplinary team of four and PBS to integrate a recommendation engine into their active site using Amazon Personalize</li>
-      <li>Designed high- and low-fidelity Figma prototypes influenced by results of 20+ self-conducted user interviews</li>
-      <li>Developed a responsive frontend using React and Vite to provide personalized content based on user behavior</li>
-    </ul>
-  </div>
-
-  <div class="entry">
-    <div class="entry-head">
-      <span class="entry-title">Against The Grain <span class="sub">| Metroidvania Game</span></span>
-      <span class="entry-date">Sep 2024 - Dec 2024</span>
-    </div>
-    <div class="entry-tech">Unity, C#, LDtk, Aseprite, HacknPlan</div>
-    <ul>
-      <li>Implemented 4+ character abilities with animations and gameplay logic as lead programmer on a four-person team</li>
-      <li>Developed a trajectory system with custom materials for real-time visual feedback</li>
-      <li>Built a collectibles/NPC system with 15+ interactive characters and branching dialogue</li>
-    </ul>
-  </div>
-
-  <div class="entry">
-    <div class="entry-head">
-      <span class="entry-title">AI Teeko Game Bot</span>
-      <span class="entry-date">Sep 2024 - Dec 2024</span>
-    </div>
-    <div class="entry-tech">Python</div>
-    <ul>
-      <li>Designed an AI system to improve decision-making in Teeko, achieving a 98.7% win rate against baseline opponents</li>
-    </ul>
-  </div>
-
-  <div class="entry">
-    <div class="entry-head">
-      <span class="entry-title">Badger News App</span>
-      <span class="entry-date">Sep 2024 - Nov 2024</span>
-    </div>
-    <div class="entry-tech">React/JavaScript, REST API, Postman</div>
-    <ul>
-      <li>Developed a React app fetching and summarizing 100+ articles with dynamic filtering and personalized news settings</li>
+      <li>Built and shipped a live leaderboard tracking a friend group's climb to Masters, ranking every player on one comparable LP value across all tiers and divisions</li>
+      <li>Wrote five serverless functions over the Riot API and stored LP history in Redis so the group shares one live board, with a one-hour client cache to stay inside API rate limits</li>
     </ul>
   </div>
 
@@ -187,18 +153,38 @@
 
   <div class="entry">
     <div class="entry-head">
-      <span class="entry-title">Carnegie Mellon University <span class="sub">| National High School Game Academy</span></span>
-      <span class="entry-date">May 2021 - Aug 2021</span>
+      <span class="entry-title">IndieCade <span class="sub">| Game Design Intern, Climate Jam 2026</span></span>
+      <span class="entry-date">Jun 2026 - Aug 2026</span>
     </div>
-    <div class="entry-tech">Unity, C#, Perforce, Maya Autodesk, Audacity</div>
+    <div class="entry-tech">Unity, C#</div>
     <ul>
-      <li>Led a team of five as Producer in developing an original video game, taking charge of programming and design while contributing narrative writing, 2D/3D art, and audio production</li>
+      <li>Built a 2D farming game about adapting crops to extreme weather, as one of three programmers on a seven-person remote team</li>
+      <li>Owned player movement, the weather system that drives each season's hazards, and the hunger system the survival loop is built on</li>
     </ul>
   </div>
 
-  <div class="footer-line">
-    <strong>Volunteering:</strong> Viterbi STEM LEAF Day, Madison Engineering Expo, Second Harvest, AYSO
-    &nbsp;&nbsp;|&nbsp;&nbsp; <strong>Extras:</strong> USC Open Alpha Club
+  <div class="entry">
+    <div class="entry-head">
+      <span class="entry-title">PBS Wisconsin <span class="sub">| Software Engineer, UW-Madison Capstone</span></span>
+      <span class="entry-date">Jan 2025 - May 2025</span>
+    </div>
+    <div class="entry-tech">React, Python, Flask, Vite, AWS (Personalize, S3), REST API, SQL</div>
+    <ul>
+      <li>Developed a "recommended for you" feature for PBS Wisconsin's live site with a team of four, training and hosting the recommendation model on AWS Personalize</li>
+      <li>Connected the site to the model: send a user ID, get back recommended shows, and fall back to a default list if anything fails</li>
+      <li>Turned show descriptions into model features with NLP so the engine could recommend by content similarity, not just view history</li>
+      <li>Designed high- and low-fidelity Figma prototypes shaped by 20+ user interviews the team conducted</li>
+    </ul>
+  </div>
+
+  <div class="entry">
+    <div class="entry-head">
+      <span class="entry-title">Target Inc. <span class="sub">| Retail &amp; Market Associate</span></span>
+      <span class="entry-date">Jun 2024 - Jan 2025</span>
+    </div>
+    <ul>
+      <li>Led the Pickup team to 98% order efficiency and was recognized by management for it</li>
+    </ul>
   </div>
 
 </body>
