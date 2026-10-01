@@ -5,8 +5,8 @@ import games    from "../data/games";
 import CharacterScene from "../components/CharacterScene";
 
 const skillGroups = [
-  { label: "Languages", pills: ["C#", "C++", "Python", "Java", "JavaScript/HTML/CSS"] },
-  { label: "Tools",     pills: ["Unity", "Git", "Unreal Engine", "React", "Flask", "Maya Autodesk", "Blender"] },
+  { label: "Languages", pills: ["C++", "C#", "Python", "Lua (Luau)", "Java", "JavaScript/TypeScript", "SQL"] },
+  { label: "Tools",     pills: ["Unity", "Roblox Studio", "Unreal Engine", "AWS", "Git", "Perforce", "React", "Django"] },
   { label: "Strengths", pills: ["Game Design", "Systems Design", "AI / ML", "Project Leadership", "Team Collaboration"] },
 ];
 
@@ -358,9 +358,24 @@ export default function Home({ onNavigate }) {
                   </span>
                   <div style={{ flex: 1 }}>
                     <div style={{ marginBottom: 4 }}>
-                      <span style={{ fontFamily: "var(--font-body)", fontSize: 13, fontWeight: 600, color: "var(--color-text)" }}>
-                        {item.title}
-                      </span>
+                      {item.page ? (
+                        <button
+                          onClick={() => onNavigate(item.page)}
+                          style={{
+                            background: "none", border: "none", padding: 0, cursor: "pointer",
+                            fontFamily: "var(--font-body)", fontSize: 13, fontWeight: 600,
+                            color: "var(--color-text)", transition: "color 0.15s",
+                          }}
+                          onMouseEnter={e => e.currentTarget.style.color = "var(--color-accent)"}
+                          onMouseLeave={e => e.currentTarget.style.color = "var(--color-text)"}
+                        >
+                          {item.title} →
+                        </button>
+                      ) : (
+                        <span style={{ fontFamily: "var(--font-body)", fontSize: 13, fontWeight: 600, color: "var(--color-text)" }}>
+                          {item.title}
+                        </span>
+                      )}
                     </div>
                     <div style={{ fontFamily: "var(--font-body)", fontSize: 12, color: "var(--color-muted)", lineHeight: 1.6 }}>
                       {item.description}

@@ -1,5 +1,13 @@
 const games = [
   {
+    title:       "Phrontiers",
+    image:       "/games/phrontiers/phrontiers.svg",
+    page:        "game-phrontiers",
+    platform:    "Roblox · In Development",
+    tags:        ["Luau", "Roblox Studio", "Multiplayer", "RTS"],
+    description: "Real-time 1v1 strategy where Clash Royale meets StarCraft: server-authoritative unit simulation, deployment validation, and a dual-resource economy built in Luau.",
+  },
+  {
     title:       "The H.U.G.S. Protocol",
     image:       "/games/hugs-protocol/the-hugs-protocol.png",
     url:         "https://shboomba.itch.io/the-hugs-protocol",
@@ -11,7 +19,7 @@ const games = [
   {
     title:       "Against the Grain",
     image:       "/games/atg/against-the-grain.png",
-    url:         "https://loden-campbell.itch.io/against-the-grain",
+    url:         "https://shboomba.itch.io/against-the-grain",
     page:        "game-atg",
     platform:    "itch.io",
     tags:        ["Unity", "C#", "Platformer", "2D"],
@@ -20,7 +28,7 @@ const games = [
   {
     title:       "On Par",
     image:       "/games/on-par/on-par.png",
-    url:         "https://loden-campbell.itch.io/on-par",
+    url:         "https://shboomba.itch.io/on-par",
     page:        "game-on-par",
     platform:    "itch.io",
     tags:        ["Platformer", "Speedrun"],
@@ -29,7 +37,7 @@ const games = [
   {
     title:       "Desolate Remnants",
     image:       "/games/desolate-remnants/desolate-remnants.png",
-    url:         "https://loden-campbell.itch.io/desolate-remnants",
+    url:         "https://shboomba.itch.io/desolate-remnants",
     page:        "game-desolate-remnants",
     platform:    "itch.io",
     tags:        ["Unity", "C#", "Puzzle", "Physics"],
@@ -38,7 +46,7 @@ const games = [
   {
     title:       "The Cave",
     image:       "/games/the-cave/the-cave.png",
-    url:         "https://loden-campbell.itch.io/the-cave",
+    url:         "https://shboomba.itch.io/the-cave",
     page:        "game-the-cave",
     platform:    "itch.io",
     tags:        ["Twine", "Narrative", "Interactive Fiction"],

@@ -14,7 +14,8 @@ const bio = {
 
   // Links shown under your name on the homepage
   contacts: [
-    { label: "LinkedIn",                 href: "http://linkedin.com/in/loden-campbell" },
+    { label: "LinkedIn",                 href: "https://linkedin.com/in/loden-campbell" },
+    { label: "GitHub",                   href: "https://github.com/shboomba" },
     { label: "loden.campbell@gmail.com", href: "mailto:loden.campbell@gmail.com" },
     { label: "ljcampbe@usc.edu",         href: "mailto:ljcampbe@usc.edu" },
   ],
@@ -26,16 +27,17 @@ const bio = {
   ],
 
   // Short tagline shown under name in hero
-  tagline: "I build gameplay systems and interactive experiences focused on responsive mechanics, procedural generation, and maintainable architecture.",
+  tagline: "I build gameplay systems and interactive experiences, and the tools and AI systems that help others build them.",
 
   // Short blurb shown in the About Me card on the home page
   blurb: "I'm a Computer Science (Game Development) graduate student at USC with a passion for building immersive, system-driven experiences. My background in gameplay systems, AI, and interactive simulations allows me to bridge the gap between creative design and technical implementation.",
 
   // Update these with whatever you're actively building
   currentlyWorkingOn: [
-    { title: "Phrontiers",     description: "A Roblox game where Clash Royale meets StarCraft." },
+    { title: "Phrontiers",     description: "A Roblox real-time strategy game built in Luau, where Clash Royale meets StarCraft.", page: "game-phrontiers" },
     { title: "Crease", description: "USC AGP: A 3D flight adventure game where folding letters into paper planes tells a heartfelt story of a distant father and daughter." },
     { title: "Large Language Mimic", description: "A frantic narrative game about acting as an AI chatbot for a not-so-ethical Senator." },
+    { title: "The Green Plantern", description: "IndieCade Climate Jam 2026: A 2D survival farming game about adapting crops to extreme weather, built with a seven-person team." },
   ],
 
   // About me section — each string is one paragraph
@@ -44,7 +46,7 @@ const bio = {
     "I am currently pursuing a Master's in Computer Science at the University of Southern California, specializing in Game Development. I previously earned a Bachelor of Science in Computer Science from the University of Wisconsin-Madison, with a double minor in Game Design and Mathematics.",
     "I develop gameplay systems and interactive experiences using C++, C#, and Unity, with a focus on responsive mechanics, performance, and maintainable architecture. My work includes implementing core gameplay features, prototyping new mechanics, and iterating based on playtesting and technical constraints.",
     "Across team-based projects, I have contributed from initial design through final implementation, building complete gameplay experiences. I have also led teams in fast-paced environments such as hackathons, driving technical direction, coordinating development, and delivering polished, playable builds under tight deadlines.",
-    "I am interested in gameplay engineering roles where I can work closely with designers and contribute to building engaging player-facing systems.",
+    "I'm interested in engineering roles at the intersection of gameplay systems, platform tooling, and AI-assisted creation, building the systems that let players and creators do more.",
   ],    
 };
 

@@ -2,7 +2,7 @@
 import gameDetails from "../data/gameDetails";
 import WorkSpread  from "../components/WorkSpread";
 
-const stack = ["Python", "Java", "C#", "C++", "JavaScript", "React", "Flask", "Unity", "Maya Autodesk", "Git"];
+const stack = ["C++", "C#", "Python", "Lua (Luau)", "Java", "JavaScript/TypeScript", "SQL", "Unity", "Roblox Studio", "Unreal Engine", "AWS", "Git", "Perforce", "React", "Django"];
 
 function gameSpread(g) {
   const sub = g.subtitle.toLowerCase();

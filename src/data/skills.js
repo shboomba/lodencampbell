@@ -3,8 +3,6 @@
 //
 //  List of skills for the Skills section.
 //
-//  "level" controls the progress bar (0–100).
-//  Adjust any level to reflect your actual proficiency.
 // ============================================================
 
 const skills = [

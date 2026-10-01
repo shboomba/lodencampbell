@@ -90,7 +90,7 @@ export default function PBS({ onNavigate }) {
           </button>
 
           <div className="fade-up" style={{ display: "flex", alignItems: "center", gap: 16, marginBottom: 20 }}>
-            <img src="/pbs.png" alt="PBS Wisconsin"
+            <img src="/swe/PBS-logo.png" alt="PBS Wisconsin"
               style={{ height: 36, width: "auto", objectFit: "contain", filter: "brightness(0) invert(1)", opacity: 0.85 }}
             />
             <span style={{ fontFamily: "var(--font-body)", fontWeight: 600, fontSize: 11, color: "var(--color-accent)", letterSpacing: "1.5px", textTransform: "uppercase" }}>
